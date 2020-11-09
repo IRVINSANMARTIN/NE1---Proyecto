@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
-
+use App\User;
 class ProductoController extends Controller
 {
 

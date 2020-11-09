@@ -30,11 +30,10 @@
 </head>
 
 <body>
-	
-
-	<div class="wrapper">
+	@if(auth()->user()->role == "ADMIN")
+		<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
-			<a class="sidebar-brand" href="index.html">
+			<a class="sidebar-brand" href="{{route('inicio')}}">
                 <svg>
                     <use xlink:href="#ion-ios-pulse-strong"></use>
                 </svg>
@@ -44,28 +43,28 @@
 				<div class="sidebar-user" style="background:#b0b0b0; color: white">
 					<img src="{{asset('config/'.$config->logo)}}" class="img-fluid  mb-2" alt="Linda Miller" style="width: 80%;"/>
 					<div class="font-weight-bold">{{auth()->user()->email}}</div>
-					<small>MODO ADMINISTRADOR</small>
+					<small>{{auth()->user()->role}}</small>
 				</div>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						MENÚ
+						MENÚ DE ADMINISTRADOR
 					</li>
 					<li class="sidebar-item">
-						<a href="#dashboards" data-toggle="collapse" class="sidebar-link">
-							<i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
+						<a class="sidebar-link" href="{{route('dashboard')}}">
+							<i class="align-middle mr-2 fas fa-fw fa-chart-line"></i> <span class="align-middle">Estadisticas</span>
 						</a>
-
-						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="{{route('dashboard')}}">Panel</a></li>
-							
-						</ul>
 					</li>
 					
 
 					<li class="sidebar-item {{ request()->is('admin/productos') ? 'active' : '' }}">
 						<a class="sidebar-link" href="{{route('index.producto')}}">
-							<i class="align-middle mr-2 fas fa-fw fa-heart"></i> <span class="align-middle">Products</span>
+							<i class="align-middle mr-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Productos</span>
+						</a>
+					</li>
+					<li class="sidebar-item {{ request()->is('admin/usuarios') ? 'active' : '' }}">
+						<a class="sidebar-link" href="{{route('mostrar.usuario')}}">
+							<i class="align-middle mr-2 fas fa-fw fa-user"></i> <span class="align-middle">Usuarios</span>
 						</a>
 					</li>
 					<li class="sidebar-item {{ request()->is('admin/configuraciones') ? 'active' : '' }}">
@@ -88,7 +87,12 @@
 							<i class="align-middle mr-2 fas fa-fw fa-envelope"></i> <span class="align-middle">Mensajes</span>
 						</a>
 					</li>
-					
+					<li>
+                        <form method="POST" action="{{route('logout')}}" style="margin-bottom: 0px !important">
+                    		@csrf
+                    		<button type="submit" class="btn btn-primary" style="width: 100%;margin-right: 0px;overflow:auto;">Logout</button>
+                        </form>
+                    </li>
 				</ul>
 			</div>
 		</nav>
@@ -96,8 +100,20 @@
 
 		@yield('admin')
 
-	</div>
-
+		</div>
+	@else
+		<div class="w3-card-4 w3-margin" style="width:50%;">
+	
+			<header class="w3-container w3-blue">
+				<h1>¡Acceso denegado!</h1>
+			</header>
+		
+			<div class="w3-container">
+				<p>Solo los usuarios administradores pueden accesar a esta parte de la página, por favor regresa a la página de inicio haciendo clic en el siguiente boton.</p>
+				<a href="{{route('inicio')}}"><input type="button" value="Regresar"></a>
+		</div>
+	
+	@endif
 
 	<script src="{{asset('js/app.js')}}"></script>
 	<script src="{{asset('tinymce/tinymce.min.js')}}"></script>

@@ -188,17 +188,17 @@
                                         <img id="blah1" src="{{asset('config/'.$config->logo)}}" style="width:100%">
                                     </div>
                                     <div class="col-lg-3">
-                                        <label><b>Banner 1 - página de inicio</b></label>
+                                        <label><b>Banner Promoción 1</b></label>
                                         <input id="imgInp2" type="file" class="form-control mb-4" name="banner_inicio_uno">
                                         <img id="blah2" src="{{asset('config/'.$config->banner_inicio_uno)}}" style="width:100%">
                                     </div>
                                     <div class="col-lg-3">
-                                        <label><b>Banner 2 - página de inicio</b></label>
+                                        <label><b>Banner Promoción 2</b></label>
                                         <input id="imgInp3" type="file" class="form-control mb-4" name="banner_inicio_dos">
                                         <img id="blah3" src="{{asset('config/'.$config->banner_inicio_dos)}}"  style="width:100%">
                                     </div>
                                     <div class="col-lg-3">
-                                        <label><b>Banner 3 - De detalle de producto</b></label>
+                                        <label><b>Banner Promoción 3</b></label>
                                         <input id="imgInp4" type="file" class="form-control mb-4" name="banner_producto">
                                         <img id="blah4" src="{{asset('config/'.$config->banner_producto)}}"  style="width:100%">
                                     </div>
@@ -272,7 +272,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <!--div class="row form-group">
+                                <div class="row form-group">
                                     <div class="col-lg-4">
                                         <label><b>Culqui - Key Public</b></label>
                                     </div>

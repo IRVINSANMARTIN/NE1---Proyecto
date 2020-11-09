@@ -11,6 +11,7 @@ class DashboardController extends Controller
 
         $ventas = DB::table('venta')
         ->where('estado','=','Enviado')
+        ->orWhere('estado','=','Entregado')
         ->get();
 
         $v_reembolsado = DB::table('venta')
@@ -19,6 +20,7 @@ class DashboardController extends Controller
 
         $users = DB::table('users')
         ->where('role','=','USER')
+        ->orWhere('role','=','ADMIN')
         ->get();
 
         return view('dashboard',compact('ventas','v_reembolsado','users'));

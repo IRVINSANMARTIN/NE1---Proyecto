@@ -1,5 +1,8 @@
 @extends('layouts.users')
 @section('user-content')
+<?php use App\User;
+use App\Producto;
+use App\Venta; ?>
 <main class="main">
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <div class="container">
@@ -163,7 +166,9 @@
                                                 @elseif($config->tipo_moneda == 'Dolares')
                                                     USD $
                                                 @endif
-                                    {{$total}}</td>
+                                    {{$total}}
+                                     </td>
+                            
                             </tr>
                         </tfoot>
                     </table>
@@ -180,13 +185,78 @@
                         
                     </div><!-- End .checkout-methods -->
                     <button id="buyButton" class="btn btn-primary btn-block" style="padding:10px;border: none;background: #dd0d0d"><i class="fas fa-credit-card"></i> Pagar con tarjeta</button>
+                    <br>
+                    <a href="#" class="rainbow-button" id="rainbow-button"data-toggle="modal"data-target="#exampleModal" alt="Paga con Loyalty Points"></a>
+
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">METODO LOYALTY POINTS</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        <h3>Total a pagar:</h3>
+                        <h2><i class="far fa-money-bill-alt"></i>$<?php echo $total ?></h2>
+
+                        <?php 
+                        $usuario = User::findOrFail(auth()->user()->id);
+                        $usuario = DB::table('users as u')       
+                            ->select('u.credit')
+                            ->where('id','=',auth()->user()->id)
+                            ->get();      
+                            ?>
+                            <h3>Puntos acumulados: </h3>
+                            @foreach ($usuario as $user)
+                            <h2><i class="far fa-money-bill-alt"></i>${{$user->credit}}</h2>
+                            @endforeach 
+                            <br>
+                            <?php
+                            $credito= $user->credit;
+                            
+                            if($credito>= $total){
+
+
+                            echo 'si puedes realizar la compra';
+                                
+                            }else {
+                                echo 'NO CUENTAS CON SUFICIENTES LOYALTY POINTS PARA REALIZAR ESTA COMPRA';
+                            }
+                            
+                            
+                            
+                            ?>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        
+                        
+                        
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+        
+               
                 </div><!-- End .cart-summary -->
+               
             </div><!-- End .col-lg-4 -->
         </div><!-- End .row -->
+
     </div><!-- End .container -->
 
     <div class="mb-6"></div><!-- margin -->
+
+    
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </main>
+
 @push('scripts')
 <script>
 
@@ -207,6 +277,7 @@
     }else if(moneda == 'USD'){
         total_culqui = parseInt('<?php echo $total?>00');
     }
+    
 
     paypal.Button.render({
     env: '<?php echo $config->paypal_mode?>', 
@@ -288,8 +359,9 @@ function culqi() {
         let transanccion  = token;
         let codigo = '<?php echo uniqid();?>';
         let direccion = document.getElementById('direccion').value;
-  
+      
      return window.location="../../../../venta/checkout/detalles/"+codigo+"/"+transanccion+"/"+productos+"/"+cantidades+"/"+direccion+'/'+total_culqui+'/'+moneda+'/culqi';
+  
   } else { 
       console.log(Culqi.error);
       alert(Culqi.error.user_message);

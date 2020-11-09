@@ -7,7 +7,7 @@
 
             <div class="header">
                 <h1 class="header-title">
-                    <i class="fas fa-kaaba"></i> Mis productos
+                    <i class="fas fa-shopping-bag"></i> Mis productos
                 </h1>
                 <p class="header-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, iste!.</p>
             </div>

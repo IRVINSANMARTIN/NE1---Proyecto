@@ -26,6 +26,7 @@
 
                     @foreach ($productos as $item)
                         <div class="col-6 col-md-4">
+
                             <div class="product-default">
                                 <figure>
                                     <a href="{{route('producto',$item->slug)}}">
@@ -87,11 +88,11 @@
 
             <aside class="sidebar-shop col-lg-3 order-lg-first">
                 <div class="sidebar-wrapper">
-                    <div class="widget widget-block">
+                    <!--div class="widget widget-block">
                         <h3 class="widget-title">Los mejores productos</h3>
                         <h5>Contamos con las mejores marcas</h5>
                         <p>Te ofrecemos productos de calidad para que puedas armar tu setup de la mejor manera.</p>
-                    </div><!-- End .widget -->
+                    </div> End .widget -->
                     
                     <div class="widget">
                         <h3 class="widget-title">
@@ -113,7 +114,7 @@
 
                     
 
-                    <div class="widget">
+                    <!-- div class="widget">
                         <h3 class="widget-title">
                             <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Price</a>         
                         </h3>
@@ -122,8 +123,8 @@
                             <div class="widget-body">
                                 {!! Form::open(array('url'=>'productos','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
                                     <div class="price-slider-wrapper">
-                                        <div id="price-slider"></div><!-- End #price-slider -->
-                                    </div><!-- End .price-slider-wrapper -->
+                                        <div id="price-slider"></div> End #price-slider 
+                                    </div>End .price-slider-wrapper 
                                     <input type="hidden" name="pminor" id="pminor" value="{{$pminor}}">
                                     <input type="hidden" name="pmajor" id="pmajor" value="{{$pmajor}}">
                                     <div class="filter-price-action">
@@ -131,12 +132,12 @@
 
                                         <div class="filter-price-text">
                                             <span id="filter-price-range"></span>
-                                        </div><!-- End .filter-price-text -->
-                                    </div><!-- End .filter-price-action -->
+                                        </div>End .filter-price-text 
+                                    </div> End .filter-price-action 
                                 {{Form::close()}}
-                            </div><!-- End .widget-body -->
-                        </div><!-- End .collapse -->
-                    </div><!-- End .widget -->
+                            </div>End .widget-body 
+                        </div> End .collapse 
+                    </div> End .widget -->
 
                     
 

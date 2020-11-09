@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
     <title>DEALPC Computers</title>
         
     <!-- Favicon -->
@@ -57,7 +57,7 @@
     <div class="page-wrapper">
         <header class="header">
             <!-- Primera barra 
-            <div class="header-top" style="background: #232f3e !important; color: white !important;border: none !important">
+            <div class="header-top" style="background: #7975FC !important; color: white !important;border: none !important">
                 <div class="container">
                 </div> End .container 
             </div> End .header-top -->
@@ -106,7 +106,7 @@
                         <!-- <p class="welcome-msg">Default welcome msg! </p> -->
 
                         <div class="header-dropdown dropdown-expanded">
-                            <a href="#">Links</a>
+                            
                             <div class="header-menu">
                                 <ul>
                                     <li><a href="{{route('contacto')}}">Contact</a></li>
@@ -126,7 +126,6 @@
                             </div><!-- End .header-menu -->
                         </div><!-- End .header-dropown -->
                     </div><!-- End .header-right -->
-
                 </div><!-- End .header-bottom -->
             </div><!-- End .header-bottom -->
             
@@ -143,19 +142,14 @@
                             <a class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
                             {!! Form::open(array('url'=>'productos','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
                                 <div class="header-search-wrapper">
-                                    
-                                    
                                     <input type="search" class="form-control" placeholder="Buscar producto" name="buscar"  required>
-                                    
-                                    
-                                    
                                     <button class="btn" type="submit" type="submit"><i class="icon-magnifier"></i></button>
                                 </div><!-- End .header-search-wrapper -->
                             {{Form::close()}}
                         </div><!-- End .header-search -->
                     </div><!-- End .headeer-center -->
 
-                    <div class="header-right">
+                    <div class="header-right"> <!--Menu mobil-->
                         <button class="mobile-menu-toggler" type="button">
                             <i class="icon-menu"></i>
                         </button>
@@ -228,7 +222,7 @@
         </header><!-- End .header -->
         @yield('user-content')
 
-        <footer class="footer" style="background: #232f3e !important">
+        <footer class="footer" style="background: #2A2A2A !important">
             <div class="footer-middle">
                 <div class="container">
                     

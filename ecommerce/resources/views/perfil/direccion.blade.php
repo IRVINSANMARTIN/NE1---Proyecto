@@ -122,7 +122,7 @@
                     <ul class="list">
                         <li><a href="{{route('cuenta')}}" style="background-color: #eee;"><i class="icon icon-user"></i> Mi perfíl</a></li>
                         <li class="active"><a><i class="icon icon-post"></i> Direcciones</a></li>
-                    
+                        <li><a href="{{route('loyalty')}}"><i class="fas fa-credit-card"></i></i> Mis Loyalty Points</a></li>
                     </ul>
                 </div><!-- End .widget -->
             </aside><!-- End .col-lg-3 -->

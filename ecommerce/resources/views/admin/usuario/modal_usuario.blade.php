@@ -1,5 +1,5 @@
-<div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <form action="{{route('productos.eliminar',$item->id)}}" method="POST">
+<div class="modal fade" id="modal_usuario-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <form action="{{route('eliminar.usuario',$user->id)}}" method="POST">
         @csrf
         @method('DELETE')
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -12,7 +12,7 @@
                 </div>
             <div class="modal-body">
             
-                Desea eliminar definitivamente los datos del producto?
+                Desea eliminar definitivamente los datos del usuario?
             
             </div>
             <div class="modal-footer">

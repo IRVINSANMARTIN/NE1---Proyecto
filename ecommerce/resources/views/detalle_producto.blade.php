@@ -94,7 +94,7 @@
                                                 <p style="color:#ff5579">{{Session::get('danger')}}</p>
                                             @endif
                                             @if (Session::has('success'))
-                                                <p style="color:#232f3e "><b>{{Session::get('success')}}</b></p>
+                                                <p style="color:#7975FC "><b>{{Session::get('success')}}</b></p>
                                             @endif
                                             
                                         </div>
@@ -109,7 +109,7 @@
                                             <span>AL CARRITO</span>
                                         </button>
                                         
-                                        <p style="color:#232f3e "><b>Debe iniciar sesión para comprar.</b></p>
+                                        <p style="color:#7975FC "><b>Debe iniciar sesión para comprar.</b></p>
                                     </div>
                                     
                                @endif
@@ -204,28 +204,6 @@
             <div class="sidebar-toggle"><i class="icon-sliders"></i></div>
             <aside class="sidebar-product col-lg-3 padding-left-lg mobile-sidebar">
                 <div class="sidebar-wrapper">
-                    <div class="widget widget-brand">
-                        <a href="#">
-                            <img src="{{asset('assets/images/5f8cd601a691a.png')}}" alt="brand name">
-                        </a>
-                    </div><!-- End .widget -->
-
-                    <div class="widget widget-info">
-                        <ul>
-                            <li>
-                                <i class="icon-shipping"></i>
-                                <h4>ENVIO<br>GRATIS</h4>
-                            </li>
-                            <li>
-                                <i class="icon-us-dollar"></i>
-                                <h4>100% DE GARANTÍA<br>DE TU DINERO</h4>
-                            </li>
-                            <li>
-                                <i class="icon-online-support"></i>
-                                <h4>SOPORTE<br> 24/7</h4>
-                            </li>
-                        </ul>
-                    </div><!-- End .widget -->
 
                     <?php 
                 

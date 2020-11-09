@@ -13,7 +13,7 @@
             </div>
 
             <?php 
-
+                
                 $today = getdate();
                 $data_month = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
                 $mes_actual = $today['mon'];
@@ -23,6 +23,7 @@
                 $total_ganado = 0;
                 $mes_ganado = 0;
                 $reembolsado = 0;
+                $total_vendido=0;
 
                 $g_enero = 0;
                 $g_febrero = 0;
@@ -49,6 +50,19 @@
                 $r_octubre = 0;
                 $r_noviembre = 0;
                 $r_diciembre = 0;
+
+                $u_enero = 0;
+                $u_febrero = 0;
+                $u_marzo = 0;
+                $u_abril = 0;
+                $u_mayo = 0;
+                $u_junio = 0;
+                $u_julio = 0;
+                $u_agosto = 0;
+                $u_septiembre = 0;
+                $u_octubre = 0;
+                $u_noviembre = 0;
+                $u_diciembre = 0;
 
                 foreach ($ventas as $key => $item) {
                     $total_ganado = $total_ganado + $item->total;
@@ -111,11 +125,11 @@
                 }
                 
                 foreach ($v_reembolsado as $key => $item) {
-                    $total_ganado = $total_ganado + $item->total;
+                    
                     $array_date = explode('-',$item->createAt);
 
                     $reembolsado = $reembolsado + $item->total;
-
+                    $total_vendido = $total_ganado + $reembolsado;
                     if($array_date[0] == $ano_actual){ 
 
                         if($array_date[1] == "01"){
@@ -167,13 +181,92 @@
                         }
                     }
                 }
+                foreach ($users as $key => $item) {
+                    
+                    $array_date = explode('-',$item->created_at);
 
+                    if($array_date[0] == $ano_actual){ 
+
+                        if($array_date[1] == "01"){
+                            
+                            $u_enero++;
+                        }
+
+                        if($array_date[1] == "02"){
+                            $u_febrero++;
+                        }
+
+                        if($array_date[1] == "03"){
+                            $u_marzo++;
+                        }
+
+                        if($array_date[1] == "04"){
+                            $u_abril++;
+                        }
+
+                        if($array_date[1] == "05"){
+                            $u_mayo++;
+                        }
+
+                        if($array_date[1] == "06"){
+                            $u_junio++;
+                        }
+
+                        if($array_date[1] == "07"){
+                            $u_julio++;
+                        }
+
+                        if($array_date[1] == "08"){
+                            $u_agosto++;
+                        }
+   
+                        if($array_date[1] == "09"){
+                            $u_septiembre++;
+                        }
+
+                        if($array_date[1] == "10"){
+                            $u_octubre++;
+                        }
+
+                        if($array_date[1] == "11"){
+                            $u_noviembre++;
+                        }
+
+                        if($array_date[1] == "12"){
+                            $u_diciembre++;
+                        }
+                    }
+                }
+                
 
             ?>
 
        
             <div class="row form-group">
-                <div class="col-md-6 col-lg-3 col-xl">
+                <div class="col-md-6 col-lg-3 col-xl"> 
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title">Ventas</h5>
+                                </div>
+
+                                <div class="col-auto">
+                                    <div class="avatar">
+                                        <div class="avatar-title rounded-circle bg-primary-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="display-5 mt-1 mb-3">${{$total_vendido}}</h1>
+                            <div class="mb-0">
+                                Todos los meses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl"> 
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -289,6 +382,46 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card flex-fill w-100">
+                        <div class="card-header">
+                            <div class="card-actions float-right">
+                                
+                            <div class="d-inline-block dropdown show">
+                                <a href="#" data-toggle="dropdown" data-display="static">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </a>
+
+                                    
+                                </div>
+                            </div>
+                            <h5 class="card-title mb-0">Grafico de rembolso</h5>
+                        </div>
+                        <div class="card-body py-3">
+                            <div class="chart chart-sm"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                <canvas id="chartjs-dashboard-line3" style="display: block; height: 250px; width: 613px;" width="766" height="312" class="chartjs-render-monitor"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card flex-fill w-100">
+                        <div class="card-header">
+                            <div class="card-actions float-right">
+                                
+                            <div class="d-inline-block dropdown show">
+                                <a href="#" data-toggle="dropdown" data-display="static">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </a>
+
+                                    
+                                </div>
+                            </div>
+                            <h5 class="card-title mb-0">Grafico de Usuarios</h5>
+                        </div>
+                        <div class="card-body py-3">
+                            <div class="chart chart-sm"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                <canvas id="chartjs-dashboard-line2" style="display: block; height: 250px; width: 613px;" width="766" height="312" class="chartjs-render-monitor"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -314,7 +447,56 @@
                         borderWidth: 2,
                         stepSize: 50,
                         data: ['<?php echo $g_enero?>', '<?php echo $g_febrero?>', '<?php echo $g_marzo?>','<?php echo $g_abril?>', '<?php echo $g_mayo?>', '<?php echo $g_junio?>', '<?php echo $g_julio?>', '<?php echo $g_agosto?>', '<?php echo $g_septiembre?>', '<?php echo $g_octubre?>', '<?php echo $g_noviembre?>', '<?php echo $g_diciembre?>']
-                    },
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    intersect: false
+                },
+                hover: {
+                    intersect: true
+                },
+                plugins: {
+                    filler: {
+                        propagate: false
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        reverse: true,
+                        gridLines: {
+                            color: "rgba(0,0,0,0.0)"
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            stepSize: 500
+                        },
+                        display: true,
+                        gridLines: {
+                            color: "rgba(0,0,0,0)",
+                            fontColor: "#fff"
+                        }
+                    }]
+                }
+            }
+        });
+        new Chart(document.getElementById("chartjs-dashboard-line3"), {
+
+            type: 'line',
+            data: {
+                labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                datasets: [
                     {
                         label: "Reembolsos",
                         fill: true,
@@ -355,7 +537,65 @@
                     }],
                     yAxes: [{
                         ticks: {
-                            stepSize: 200
+                            stepSize: 400
+                        },
+                        display: true,
+                        gridLines: {
+                            color: "rgba(0,0,0,0)",
+                            fontColor: "#fff"
+                        }
+                    }]
+                }
+            }
+        });
+        new Chart(document.getElementById("chartjs-dashboard-line2"), {
+
+            type: 'line',
+            data: {
+                labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                datasets: [{
+                        label: "Usuarios",
+                        fill: true,
+                        backgroundColor: window.theme.primary,
+                        borderColor: window.theme.primary,
+                        borderWidth: 2,
+                        stepSize: 50,
+                        data: ['<?php echo $u_enero?>', '<?php echo $u_febrero?>', '<?php echo $u_marzo?>','<?php echo $u_abril?>', '<?php echo $u_mayo?>', '<?php echo $u_junio?>', '<?php echo $u_julio?>', '<?php echo $u_agosto?>', '<?php echo $u_septiembre?>', '<?php echo $u_octubre?>', '<?php echo $u_noviembre?>', '<?php echo $u_diciembre?>']
+                    },
+                    
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    intersect: false
+                },
+                hover: {
+                    intersect: true
+                },
+                plugins: {
+                    filler: {
+                        propagate: false
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        reverse: true,
+                        gridLines: {
+                            color: "rgba(0,0,0,0.0)"
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            stepSize: 1
                         },
                         display: true,
                         gridLines: {

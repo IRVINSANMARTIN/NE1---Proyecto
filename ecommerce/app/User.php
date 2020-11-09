@@ -21,7 +21,8 @@ class User extends Authenticatable
         'role',
         'telefono',
         'tipo_doc',
-        'num_doc'
+        'num_doc',
+        'credit'
     ];
 
     protected $guarded=[

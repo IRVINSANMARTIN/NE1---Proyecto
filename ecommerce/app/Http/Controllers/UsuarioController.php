@@ -30,6 +30,28 @@ class UsuarioController extends Controller
         return view('perfil.cuenta',compact('usuario'));
     }
 
+    public function mostrar(Request $request){
+        if($request){
+
+            $buscar = $request->get('buscar');
+            $usuarios = DB::table('users')
+            ->where('email','LIKE','%'.$buscar.'%')
+            ->paginate(20);
+
+            return view('admin.usuario.index_usuario',compact('buscar','usuarios'));
+        }
+    }
+
+    public function destroy_usuario($id){
+
+        $usuarios = User::findOrFail($id);
+        $usuarios->delete();
+
+        Session::flash('success', 'Se eliminó el producto correctamente');
+        return redirect()->back();
+
+    }
+
     public function editar_perfil(Request $request){
 
         
@@ -40,6 +62,7 @@ class UsuarioController extends Controller
             'telefono'=>'required|min:3| max: 15',
             'tipo_doc'=>'required|min:3| max: 50',
             'num_doc'=>'required|min:3| max: 20',
+            'credit' =>'required|min:3| max:20'
         ]);
 
         try {
@@ -51,6 +74,7 @@ class UsuarioController extends Controller
             $user->telefono = $request->get('telefono');
             $user->tipo_doc = $request->get('tipo_doc');
             $user->num_doc = $request->get('num_doc');
+            $user->credit = $request->get('credit');
             if($request->get('contrasena')){
                 $user->password = bcrypt($request->get('contrasena'));
             }
@@ -190,8 +214,11 @@ class UsuarioController extends Controller
 
         $data_productos = implode('-',$productos);
         $data_cantidades = implode('-',$cantidades);
-
+    
         $authenticate = auth::check();
+
+            
+        
 
         return view('perfil.carrito',compact('carrito','direcciones','total','authenticate','data_productos','data_cantidades','config'));
     }
@@ -269,6 +296,11 @@ class UsuarioController extends Controller
             }
 
             Session::flash('success', 'Se procesó la compra correctamente.');
+            $porciento = $total *.10;
+            $usuario = DB::table('users')
+            ->where('id','=',auth()->user()->id)
+            ->increment('credit', $porciento);
+            
             return redirect()->route('mis_compras');
         } catch (\Exception $e) {
             dd($e);
@@ -350,7 +382,7 @@ class UsuarioController extends Controller
             $resena->foto_tres = $imageName3;
             $resena->save();
 
-            Session::flash('success', 'Se envió su resena, feliciades.');
+            Session::flash('success', 'Se envió su resena, felicidades.');
             return redirect()->back();
         } catch (\Exception $e) {
             
@@ -386,4 +418,19 @@ class UsuarioController extends Controller
             return redirect()->back();//throw $th;
         }
     }
+    public function loyalty(){
+
+        
+        $usuario = User::findOrFail(auth()->user()->id);
+        $usuario = DB::table('users as u')       
+        ->select('u.credit')
+        ->where('id','=',auth()->user()->id)
+        ->get();
+
+        
+
+        return view('perfil.loyalty',compact('usuario'));
+    }
+
 }
+

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2020 a las 03:11:37
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.9
+-- Host: localhost
+-- Generation Time: Nov 09, 2020 at 06:21 AM
+-- Server version: 10.4.11-MariaDB-log
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ecommerce`
+-- Database: `ecommerce`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cancelacion`
+-- Table structure for table `cancelacion`
 --
 
 CREATE TABLE `cancelacion` (
@@ -36,7 +37,7 @@ CREATE TABLE `cancelacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `cancelacion`
+-- Dumping data for table `cancelacion`
 --
 
 INSERT INTO `cancelacion` (`id`, `motivo`, `idventa`, `estado`, `fecha`) VALUES
@@ -44,12 +45,13 @@ INSERT INTO `cancelacion` (`id`, `motivo`, `idventa`, `estado`, `fecha`) VALUES
 (6, 'No me gusta el producto.', 33, 'Pendiente', '2020-04-01'),
 (7, 'No me gusta el producto.', 32, 'Reembolsado', '2020-04-01'),
 (8, 'No me gusto el producto, ya no lo quiero.', 39, 'Pendiente', '2020-04-01'),
-(9, 'No quiero el producto', 41, 'Reembolsado', '2020-04-01');
+(9, 'No quiero el producto', 41, 'Reembolsado', '2020-04-01'),
+(10, 'No me gusta el producto', 49, 'Reembolsado', '2020-11-09');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carrito`
+-- Table structure for table `carrito`
 --
 
 CREATE TABLE `carrito` (
@@ -61,16 +63,17 @@ CREATE TABLE `carrito` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `carrito`
+-- Dumping data for table `carrito`
 --
 
 INSERT INTO `carrito` (`id`, `iduser`, `idproducto`, `cantidad`, `createAt`) VALUES
-(54, 5, 16, 1, '2020-05-20');
+(54, 5, 16, 1, '2020-05-20'),
+(57, 7, 13, 1, '2020-11-01');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Table structure for table `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -80,7 +83,7 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categoria`
+-- Dumping data for table `categoria`
 --
 
 INSERT INTO `categoria` (`id`, `titulo`, `icono`) VALUES
@@ -95,7 +98,7 @@ INSERT INTO `categoria` (`id`, `titulo`, `icono`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `configuraciones`
+-- Table structure for table `configuraciones`
 --
 
 CREATE TABLE `configuraciones` (
@@ -123,16 +126,16 @@ CREATE TABLE `configuraciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `configuraciones`
+-- Dumping data for table `configuraciones`
 --
 
 INSERT INTO `configuraciones` (`id`, `logo`, `titulo`, `telefono`, `facebook`, `twitter`, `correo`, `direccion`, `horario`, `msm_procesado`, `msm_cancelado`, `msm_entregado`, `banner_inicio_uno`, `banner_inicio_dos`, `banner_producto`, `paypal_mode`, `paypal_client_id`, `paypal_client_id_production`, `tipo_moneda`, `culqui_key_public`, `culqui_key_private`) VALUES
-(1, '5f8ba9d5ef143.png', 'DEALPC Computers', '4494951043', 'https://www.facebook.com/dealpc', 'https://www.twitter.com/dealpc', 'admin@dealpc.com', 'Calle Madero #343 Zona Centro. CP. 20000 Aguascalientes, Ags.', 'Lunes-Viernes de 8:00 am a 10:00 pm', 'La compra esta a la espera del que producto sea enviado a su destino, proximo estado sera ENVIADO.', 'La compra fue cancelada, el tiempo de espera por la emisión del reembolso es de 3 a 5 días hábiles.', 'El producto fue entregado con exito, si aun no escribe una reseña del producto que compró ya lo puede hacer.', '5f8cd9820c163.jpeg', '5f8cdb2cf13bf.jpeg', '5f8cdad4c8559.jpeg', 'sandbox', 'No disponible', 'No disponible', 'Dolares', 'No disponible', 'No disponible');
+(1, '5f8ba9d5ef143.png', 'DEALPC Computers', '4494951043', 'https://www.facebook.com/dealpc', 'https://www.twitter.com/dealpc', 'admin@dealpc.com', 'Calle Madero #343 Zona Centro. CP. 20000 Aguascalientes, Ags.', 'Lunes-Viernes de 8:00 am a 10:00 pm', 'La compra esta a la espera del que producto sea enviado a su destino, proximo estado sera ENVIADO.', 'La compra fue cancelada, el tiempo de espera por la emisión del reembolso es de 3 a 5 días hábiles.', 'El producto fue entregado con exito, si aun no escribe una reseña del producto que compró ya lo puede hacer.', '5f8cd9820c163.jpeg', '5f8cdb2cf13bf.jpeg', '5f8cdad4c8559.jpeg', 'sandbox', 'ATICHcu5eXDSWJOQAIzZ08kcI89lXFZpY2TmbpN0ZlL6zHLVkplziHsWWSujjR5cPGkbRcIzNSQHgAVL', '564dgLJHGL5a6454DF654', 'Dolares', 'No disponible', 'No disponible');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `direccion`
+-- Table structure for table `direccion`
 --
 
 CREATE TABLE `direccion` (
@@ -146,18 +149,21 @@ CREATE TABLE `direccion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `direccion`
+-- Dumping data for table `direccion`
 --
 
 INSERT INTO `direccion` (`id`, `iduser`, `pais`, `region`, `ciudad`, `direccion`, `zip`) VALUES
-(3, 5, 'Peru', 'Santa', 'Chimbote', 'Miraflores Alto\r\nPsj.Los Laureles Mz.G2 Lt.30', 2741),
-(4, 5, 'Peru', 'Ancash', 'Nuevo Chimbote', 'Urb. Paseo Del mar MZ G2 Lt6 - 1ra etapa', 2710),
-(5, 6, 'Peru', 'Lima', 'Lima', 'Lima Surquillo 987, Edificio 8, piso 5, puerta 895', 2741);
+(3, 5, 'Mexico', 'Jalisco', 'Guadalajara', 'Zaragoza #343 Haciendas', 80923),
+(4, 5, 'Mexico', 'Nuevo Leon', 'Monterrey', 'Av. Insurgentes #454 Arboledas', 23710),
+(5, 6, 'Mexico', 'Aguascalientes', 'Aguascalientes', 'Congreso de chilpancingo #343 Morelos 1', 24741),
+(7, 7, 'Mexico', 'Aguascalientes', 'Aguascalientes', 'Hacienda de chapingo 104 Real de Haciendas', 20196),
+(8, 1, 'Mexico', 'Aguascalientes', 'Aguascalientes', 'Congreso de chilpancingo #813 Morelos 1', 20298),
+(9, 11, 'Mexico', 'Aguascalientes', 'Aguascalientes', 'Bugambilia 424', 20907);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -172,7 +178,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `galeria`
+-- Table structure for table `galeria`
 --
 
 CREATE TABLE `galeria` (
@@ -182,7 +188,7 @@ CREATE TABLE `galeria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `galeria`
+-- Dumping data for table `galeria`
 --
 
 INSERT INTO `galeria` (`id`, `foto`, `idproducto`) VALUES
@@ -232,7 +238,7 @@ INSERT INTO `galeria` (`id`, `foto`, `idproducto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensajes`
+-- Table structure for table `mensajes`
 --
 
 CREATE TABLE `mensajes` (
@@ -244,7 +250,7 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `mensajes`
+-- Dumping data for table `mensajes`
 --
 
 INSERT INTO `mensajes` (`id`, `nombres`, `correo`, `mensaje`, `telefono`) VALUES
@@ -253,7 +259,7 @@ INSERT INTO `mensajes` (`id`, `nombres`, `correo`, `mensaje`, `telefono`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -263,7 +269,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -274,7 +280,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -286,7 +292,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
@@ -297,7 +303,7 @@ CREATE TABLE `producto` (
   `idcategoria` int(11) DEFAULT NULL,
   `poster` varchar(200) DEFAULT NULL,
   `precio_ahora` decimal(7,2) NOT NULL,
-  `precio_antes` decimal(7,2) NOT NULL,
+  `precio_antes` decimal(7,2) DEFAULT NULL,
   `estado` varchar(10) NOT NULL,
   `stock` int(11) NOT NULL,
   `slug` longtext NOT NULL,
@@ -305,7 +311,7 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`id`, `titulo`, `resena`, `contenido`, `idcategoria`, `poster`, `precio_ahora`, `precio_antes`, `estado`, `stock`, `slug`, `num_ventas`) VALUES
@@ -317,17 +323,17 @@ INSERT INTO `producto` (`id`, `titulo`, `resena`, `contenido`, `idcategoria`, `p
 (9, 'BlitzWolf® BW-ES4 Dual Dynamic', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ea eaque neque dignissimos? Deserunt dolor rem reprehenderit excepturi ad qui?', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<p>Features:</p>\r\n<div>1.&nbsp;Double Dynamic&nbsp;Drivers with&nbsp;Graphene&nbsp;Diaphragm&mdash;&mdash; High resolution, excellent low-frequency performance</div>\r\n<div>2.&nbsp;Magnetic Asorption&mdash;&mdash;Securely hang the earphones around your neck.</div>\r\n<div>3. Ergonomic Eesign&mdash;&mdash;&nbsp;Mini earbuds&nbsp;body design, more fit the auricle, wear more comfortable and safe.</div>\r\n<div>4.&nbsp;Durable Wire&mdash;&mdash;TPE material, wear-resistant and prevent knot. With&nbsp;wired control&nbsp;function.</div>\r\n<div>5.&nbsp;IPX5 Waterproof&nbsp;and Sweat-proof&mdash;&mdash;Rain or sweat can\'t keep you from your music.</div>\r\n<p>Specifications:</p>\r\n<table border=\"1\" width=\"600\" cellspacing=\"1\" cellpadding=\"1\">\r\n<tbody>\r\n<tr>\r\n<td colspan=\"2\">General Specification</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 150px;\">&nbsp;&nbsp;Brand</td>\r\n<td>&nbsp;&nbsp;BlitzWolf&reg;&nbsp;</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Model</td>\r\n<td>&nbsp;&nbsp;BW-ES4&nbsp;</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Color</td>\r\n<td>&nbsp; Black</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Wearing Type</td>\r\n<td>&nbsp; In-ear</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;Cable Length (m)</td>\r\n<td>&nbsp; 1.2m</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Net Weight (g)</td>\r\n<td>&nbsp; 15g</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Size</td>\r\n<td>&nbsp; 190*170*85mm</td>\r\n</tr>\r\n<tr>\r\n<td colspan=\"2\">Technical Parameters</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Microphone</td>\r\n<td>&nbsp; Yes</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Wired Control</td>\r\n<td>&nbsp; Support</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Plug Type</td>\r\n<td>&nbsp; 3.5mm</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Speaker Size</td>\r\n<td>&nbsp; 10mm</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Receive Sensitivity</td>\r\n<td>&nbsp; 103dB</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Impedance</td>\r\n<td>&nbsp; 32&Omega;</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp;&nbsp;Frequency Response</td>\r\n<td>&nbsp; 20-18kHz</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Waterproof</td>\r\n<td>&nbsp; IPX5</td>\r\n</tr>\r\n<tr>\r\n<td>&nbsp; Certification</td>\r\n<td>&nbsp; FCC, RoHS, CE</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>Package&nbsp;&nbsp;Included:</p>\r\n<p>1*&nbsp;BlitzWolf&reg; BW-ES4 Dual Dynamic Drivers Graphene Earphone with Mic<br />3 pairs of Eartips(S/ M/ L)</p>\r\n</body>\r\n</html>', 7, '5e83514385f83.jpeg', '35.00', '52.00', 'DISPONIBLE', 150, 'blitzwolf_bw_es4_dual_dynamic', 0),
 (10, 'Xiaomi Gaming Laptop 15.6', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea deserunt quis consectetur voluptatem minus repudiandae? Deserunt rem quasi repellat in!', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<p>Xiaomi Gaming Laptop 15.6 inch Intel Core&nbsp;i7-9750H&nbsp;NVIDIA GeForce RTX2060 144Hz 16GB GDDR4 RAM 512GB PCle SSD Notebook<br /><br />-How do you feel about Xiaomi gaming laptop with the latest and powerful RTX2060?&nbsp;<br /><br />The powerful&nbsp;Windows 10&nbsp;operating system makes you easy to deal with daily work. Powered by&nbsp;Intel Core i7-9750H&nbsp;Hexa Core&nbsp;processor,&nbsp;equipped with the popular&nbsp;NVIDIA&nbsp;GeForce RTX2060&nbsp;the more awesome performance can run some large office softwares, design and games.&nbsp;Dual band 2.4GHz / 5.0GHz WiFi&nbsp;supported, ensures you high-speed surfing. Adopted in&nbsp;15.6 inch&nbsp;144Hz FHD screen&nbsp;with&nbsp;72%NTSC&nbsp;and&nbsp;16GB GDDR4 RAM 512GB PCle SSD,&nbsp;that\'s the brand new Xiaomi gaming laptop for gaming players and you !<br /><br />Main Features:<br /><br />1. Windows 10 OS<br />Windows 10 brings back the popular Start Menu from Windows 7 and introduces new features, like the Edge Web browser that lets you mark up Website on your screen<br />2.&nbsp;Intel Core i7-9750H&nbsp;Hexa Core Eight Thread 2.6GHz,up to 4.5GHz<br />Ultra-low-voltage platform and hexa-core processing provide maximum high-efficiency power to go<br />3. NVIDIA&nbsp;GeForce RTX2060<br />On-processor graphics with shared video memory provide high image quality for Internet use, especially for gaming.&nbsp;<br />4. 15.6 inch FHD Screen with 1920 x 1080 Resolution<br />Boasts impressive color and clarity and IPS technology provides wide viewing angles<br />5. 16GB GDDR4 RAM for Advanced Multitasking<br />Substantial high-bandwidth RAM to smoothly run your game, photos and video-editing applications, as well as multiple programs and browser tabs all at once<br />6. 512GB PCle SSD Storage Capacity<br />Provides room to store pictures, videos, music and faster to run softwares.<br />7. Front Camera for Photos and Face-to-face Chat<br />1.0MP front camera lets you capture memorable moments or chat&nbsp;<br />8. Dual Band 2.4GHz / 5.0GHz WiFi<br />Allows you to connect to the Web while within range of an available wireless network<br />9. 144Hz 72% NTSC screen<br />Offer you an amazing vision while playing games or working.<br /><br />Package Includes:<br /><br />1.Laptop*1<br />2.User manual*1 (&nbsp;Include warranty services&nbsp;)&nbsp;<br />3.Charger*1<br />4.Charger Adapter*1</p>\r\n</body>\r\n</html>', 6, '5e835243dd061.jpeg', '1200.00', '1500.00', 'DISPONIBLE', 18, 'xiaomi_gaming_laptop_156', 2),
 (11, 'BlitzWolf® BW-PCM1 11.6 Inch FHD 1080P', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea deserunt quis consectetur voluptatem minus repudiandae? Deserunt rem quasi repellat in!', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<div>Main Features:</div>\r\n<div>&nbsp;</div>\r\n<div>11.6-inch Portable Monitor with FHD 1080P Display</div>\r\n<div>Exquisite picture quality can show more real and accurate gorgeous colors, adapt to more scenes</div>\r\n<div>&nbsp;</div>\r\n<div>Ultra-thin Body</div>\r\n<div>Aircraft-grade Aluminum Alloy, improve the compressive strength</div>\r\n<div>&nbsp;</div>\r\n<div>Dual Stereo Sound and OSD Button</div>\r\n<div>&nbsp;</div>\r\n<div>Compatible with All Kinds of Game Consoles<br />\r\n<div><br />&nbsp;</div>\r\n</div>\r\n<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\">\r\n<tbody>\r\n<tr>\r\n<td>Feature</td>\r\n<td>BW-PCM1</td>\r\n<td><a href=\"https://www.banggood.com/BlitzWolf-BW-PCM2-13_3-Inch-FHD-1080P-Type-C-Portable-Computer-Monitor-Gaming-Display-Screen-for-Smartphone-Tablet-Laptop-Game-Consoles-p-1595705.html?rmmds=category&amp;cur_warehouse=CN\">BW-PCM2</a></td>\r\n<td><a href=\"https://www.banggood.com/BlitzWolf-BW-PCM3-15_6-Inch-Touchable-FHD-1080P-Type-C-Portable-Computer-Monitor-Gaming-Display-Screen-for-Smartphone-Tablet-Laptop-Game-Consoles-p-1595706.html?rmmds=category&amp;cur_warehouse=CN\">BW-PCM3</a></td>\r\n<td><a href=\"https://www.banggood.com/BlitzWolf-BW-PCM4-15_6-Inch-UHD-4K-Type-C-Portable-Computer-Monitor-Gaming-Display-Screen-for-Smartphone-Tablet-Laptop-Game-Consoles-p-1595704.html?rmmds=category&amp;cur_warehouse=CN\">BW-PCM4</a></td>\r\n</tr>\r\n<tr>\r\n<td>Display Type</td>\r\n<td>11.6\'\'&nbsp;IPS</td>\r\n<td>13.3\'\'&nbsp;IPS</td>\r\n<td>15.6\'\'&nbsp;Touchable IPS</td>\r\n<td>15.6\'\'&nbsp;IPS</td>\r\n</tr>\r\n<tr>\r\n<td>Resolution</td>\r\n<td>1920*1080 FHD</td>\r\n<td>1920*1080 FHD</td>\r\n<td>1920*1080 FHD</td>\r\n<td>3840*2160 UHD</td>\r\n</tr>\r\n<tr>\r\n<td>Touch screen</td>\r\n<td>&times;</td>\r\n<td>&times;</td>\r\n<td>&radic;</td>\r\n<td>&times;</td>\r\n</tr>\r\n<tr>\r\n<td>Color gamut</td>\r\n<td>72% NTSC</td>\r\n<td>72% NTSC</td>\r\n<td>45% NTSC</td>\r\n<td>100% Adobe</td>\r\n</tr>\r\n<tr>\r\n<td>Refresh Frequency</td>\r\n<td>24-60Hz(Automatic)</td>\r\n<td>24-60Hz(Automatic)</td>\r\n<td>24-60Hz(Automatic)</td>\r\n<td>24-60Hz(Automatic)</td>\r\n</tr>\r\n<tr>\r\n<td>Brightness</td>\r\n<td>300cd/㎡</td>\r\n<td>300cd/㎡</td>\r\n<td>300cd/㎡</td>\r\n<td>300cd/㎡</td>\r\n</tr>\r\n<tr>\r\n<td>Reverse charging</td>\r\n<td>&times;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>USB-C Power Input</td>\r\n<td>DC 5V2A</td>\r\n<td>DC 5V3A</td>\r\n<td>DC 5V3A</td>\r\n<td>DC 5V3A</td>\r\n</tr>\r\n<tr>\r\n<td>Includes power adapter</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>HD Multimedia Interface Signal Input</td>\r\n<td>Mini&nbsp;HD Multimedia Interface</td>\r\n<td>HD Multimedia Interface</td>\r\n<td>HD Multimedia Interface</td>\r\n<td>HD Multimedia Interface</td>\r\n</tr>\r\n<tr>\r\n<td>HDR</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>Type-C full-feature<br />(power input and data transfer)</td>\r\n<td>&times;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>Type-C Version</td>\r\n<td>/</td>\r\n<td>3.1</td>\r\n<td>3.1</td>\r\n<td>3.1</td>\r\n</tr>\r\n<tr>\r\n<td>USB-A Port (connecting peripherals)</td>\r\n<td>&times;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>3.5mm audio output</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>Infrared remote control</td>\r\n<td>&radic;(Not included CR2032 )</td>\r\n<td>&radic;(Not included CR2032 )</td>\r\n<td>&radic;(Not included CR2032)&nbsp;</td>\r\n<td>&radic;(Not included CR2032)&nbsp;</td>\r\n</tr>\r\n<tr>\r\n<td>Holster bracket</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n<td>&radic;</td>\r\n</tr>\r\n<tr>\r\n<td>Product Size</td>\r\n<td>267*171*10mm</td>\r\n<td>195.7*304*9.7-4.1mm</td>\r\n<td>355*224*9.5-5mm</td>\r\n<td>352*226*9.5-4.7mm</td>\r\n</tr>\r\n<tr>\r\n<td>Net weight</td>\r\n<td>460g</td>\r\n<td>560g</td>\r\n<td>740g</td>\r\n<td>750g</td>\r\n</tr>\r\n<tr>\r\n<td>Gross weight</td>\r\n<td>1300g</td>\r\n<td>1700g</td>\r\n<td>2000g</td>\r\n<td>2000g</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<div>&nbsp;</div>\r\n</body>\r\n</html>', 6, '5e83531044682.jpeg', '320.00', '350.00', 'DISPONIBLE', 50, 'blitzwolf_bw_pcm1_116_inch_fhd_1080p', 0),
-(12, 'ACER Gaming Predator Helios', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea deserunt quis consectetur voluptatem minus repudiandae? Deserunt rem quasi repellat in!', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<h2 data-toggle-accordion-panel=\"panel-features\"><span style=\"color: #236fa1;\">Caracter&iacute;sticas destacadas</span></h2>\r\n<div data-product-scroll=\"\">\r\n<div>\r\n<div>\r\n<div>\r\n<ul style=\"list-style-type: disc;\">\r\n<li>ACER Gaming Predator Helios 300 PH317-53-775M Core i7-9750H 16GB 1TB + 256SSD NVIDIA GeForce GTX 1660 Ti 6GB</li>\r\n<li>2.6 GHz Intel Core i7-9750H Six-Core</li>\r\n<li>16GB DDR4 - 256GB NVMe PCIe M.2 SSD</li>\r\n<li>17.3\" 1920 x 1080 144 Hz IPS Display</li>\r\n<li>NVIDIA GeForce GTX 1660 Ti (6GB GDDR6)</li>\r\n<li>Sistema Operativo: Endless OS</li>\r\n<li>Marca: Acer</li>\r\n<li>PN: NH.Q5PAL.003</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</body>\r\n</html>', 6, '5e8353e109b24.jpeg', '2100.00', '2300.00', 'DISPONIBLE', 36, 'acer_gaming_predator_helios', 4);
+(12, 'ACER Gaming Predator Helios', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea deserunt quis consectetur voluptatem minus repudiandae? Deserunt rem quasi repellat in!', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<h2 data-toggle-accordion-panel=\"panel-features\"><span style=\"color: #236fa1;\">Caracter&iacute;sticas destacadas</span></h2>\r\n<div data-product-scroll=\"\">\r\n<div>\r\n<div>\r\n<div>\r\n<ul style=\"list-style-type: disc;\">\r\n<li>ACER Gaming Predator Helios 300 PH317-53-775M Core i7-9750H 16GB 1TB + 256SSD NVIDIA GeForce GTX 1660 Ti 6GB</li>\r\n<li>2.6 GHz Intel Core i7-9750H Six-Core</li>\r\n<li>16GB DDR4 - 256GB NVMe PCIe M.2 SSD</li>\r\n<li>17.3\" 1920 x 1080 144 Hz IPS Display</li>\r\n<li>NVIDIA GeForce GTX 1660 Ti (6GB GDDR6)</li>\r\n<li>Sistema Operativo: Endless OS</li>\r\n<li>Marca: Acer</li>\r\n<li>PN: NH.Q5PAL.003</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</body>\r\n</html>', 6, '5e8353e109b24.jpeg', '2100.00', '2300.00', 'DISPONIBLE', 35, 'acer_gaming_predator_helios', 5);
 INSERT INTO `producto` (`id`, `titulo`, `resena`, `contenido`, `idcategoria`, `poster`, `precio_ahora`, `precio_antes`, `estado`, `stock`, `slug`, `num_ventas`) VALUES
-(13, 'Procesador Intel Core I7-9700k, 3.6ghz, Lga 1151 (zócalo H4) 9th Gen,', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea deserunt quis consectetur voluptatem minus repudiandae? Deserunt rem quasi repellat in!', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<table style=\"width: 464px;\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Procesador</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Familia de procesador</td>\r\n<td style=\"width: 255.219px;\">9na generaci&oacute;n de procesadores Intel&reg; Core&trade; i7</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia del procesador</td>\r\n<td style=\"width: 255.219px;\">3,6 GHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero de n&uacute;cleos de procesador</td>\r\n<td style=\"width: 255.219px;\">8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Socket de procesador</td>\r\n<td style=\"width: 255.219px;\">LGA 1151 (Z&oacute;calo H4)</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Componente para</td>\r\n<td style=\"width: 255.219px;\">PC</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Litograf&iacute;a del procesador</td>\r\n<td style=\"width: 255.219px;\">14 nm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Caja</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Refrigerador incluido</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Fabricante de procesador</td>\r\n<td style=\"width: 255.219px;\">Intel</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Modelo del procesador</td>\r\n<td style=\"width: 255.219px;\">i7-9700K</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero de filamentos de procesador</td>\r\n<td style=\"width: 255.219px;\">8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">System bus data transfer rate</td>\r\n<td style=\"width: 255.219px;\">8 GT/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Modo de procesador operativo</td>\r\n<td style=\"width: 255.219px;\">64 bits</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Cach&eacute; del procesador</td>\r\n<td style=\"width: 255.219px;\">12 MB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipo de cache en procesador</td>\r\n<td style=\"width: 255.219px;\">Smart Cache</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Escalonamiento</td>\r\n<td style=\"width: 255.219px;\">P0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia del procesador turbo</td>\r\n<td style=\"width: 255.219px;\">4,9 GHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipos de bus</td>\r\n<td style=\"width: 255.219px;\">DMI3</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Procesador nombre en clave</td>\r\n<td style=\"width: 255.219px;\">Coffee Lake</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Ancho de banda de memoria soportada por el procesador (max)</td>\r\n<td style=\"width: 255.219px;\">41,6 GB/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">c&oacute;digo de procesador</td>\r\n<td style=\"width: 255.219px;\">SRELT</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Procesador ARK ID</td>\r\n<td style=\"width: 255.219px;\">186604</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Memoria</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Canales de memoria</td>\r\n<td style=\"width: 255.219px;\">Dual-channel</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria interna m&aacute;xima que admite el procesador</td>\r\n<td style=\"width: 255.219px;\">64 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipos de memoria que admite el procesador</td>\r\n<td style=\"width: 255.219px;\">DDR4-SDRAM</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Velocidad de reloj de memoria que admite el procesador</td>\r\n<td style=\"width: 255.219px;\">2666 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">ECC</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Gr&aacute;ficos</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Adaptador de gr&aacute;ficos discreto</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Modelo de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">Intel&reg; UHD Graphics 630</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria m&aacute;xima de adaptador de gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">64 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Salidas compatibles de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">DisplayPort,Embedded DisplayPort (eDP),HDMI</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia base de gr&aacute;ficos incorporada</td>\r\n<td style=\"width: 255.219px;\">350 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia din&aacute;mica (m&aacute;x) de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">1200 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero de pantallas soportadas (gr&aacute;ficos incorporados)</td>\r\n<td style=\"width: 255.219px;\">3</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">4K soporte de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n DirectX de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">12.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n OpenGL de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">4.5</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Resoluci&oacute;n m&aacute;xima de adaptador gr&aacute;fico incorporado (DisplayPort)</td>\r\n<td style=\"width: 255.219px;\">4096 x 2304 Pixeles</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Resoluci&oacute;n m&aacute;xima de adaptador gr&aacute;fico incorporado (eDP - Integrated Flat Panel)</td>\r\n<td style=\"width: 255.219px;\">4096 x 2304 Pixeles</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Resoluci&oacute;n m&aacute;xima de adaptador gr&aacute;fico incorporado (HDMI)</td>\r\n<td style=\"width: 255.219px;\">4096 x 2304 Pixeles</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia de actualizaci&oacute;n de adaptador gr&aacute;fico incorporado a la resoluci&oacute;n m&aacute;xima (DisplayPort)</td>\r\n<td style=\"width: 255.219px;\">60 Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia de actualizaci&oacute;n de adaptador gr&aacute;fico incorporado a la resoluci&oacute;n m&aacute;xima (eDP - Integrated Flat Panel)</td>\r\n<td style=\"width: 255.219px;\">60 Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia de actualizaci&oacute;n de adaptador gr&aacute;fico incorporado a la resoluci&oacute;n m&aacute;xima (HDMI)</td>\r\n<td style=\"width: 255.219px;\">24 Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">ID de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">0x3E98</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Control de energ&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Potencia de dise&ntilde;o t&eacute;rmico (TDP)</td>\r\n<td style=\"width: 255.219px;\">95 W</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Caracter&iacute;sticas</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Execute Disable Bit</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Estados de inactividad</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Thermal Monitoring de Intel</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero m&aacute;ximo de buses PCI Express</td>\r\n<td style=\"width: 255.219px;\">16</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n de entradas de PCI Express</td>\r\n<td style=\"width: 255.219px;\">3.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Configuraciones PCI Express</td>\r\n<td style=\"width: 255.219px;\">1x16,1x8+2x4,2x8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Set de instrucciones soportadas</td>\r\n<td style=\"width: 255.219px;\">AVX 2.0,SSE4.1,SSE4.2</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Escalabilidad</td>\r\n<td style=\"width: 255.219px;\">1S</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Configuraci&oacute;n de CPU (m&aacute;ximo)</td>\r\n<td style=\"width: 255.219px;\">1</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Opciones integradas disponibles</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Caracteristicas t&eacute;cnicas de la soluci&oacute;n t&eacute;rmica</td>\r\n<td style=\"width: 255.219px;\">PCG 2015D</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Revisi&oacute;n PCI Express CEM</td>\r\n<td style=\"width: 255.219px;\">3.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Segmento de mercado</td>\r\n<td style=\"width: 255.219px;\">DT</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">C&oacute;digo de Sistema de Armomizaci&oacute;n (SA)</td>\r\n<td style=\"width: 255.219px;\">8542310001</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Caracter&iacute;sticas especiales del procesador</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel Hyper-Threading</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a de protecci&oacute;n de identidad de Intel&reg; (Intel&reg; IPT)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Intel&reg; Turbo Boost</td>\r\n<td style=\"width: 255.219px;\">2.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Intel&reg; Quick Sync Video</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Tecnolog&iacute;a InTru&trade; 3D</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Clear Video HD de Intel&reg; (Intel&reg; CVT HD)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; AES Nuevas instrucciones (Intel&reg; AES-NI)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a SpeedStep mejorada de Intel</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Trusted Execution de Intel&reg;</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Memory Protection Extensions (Intel&reg; MPX)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Enhanced Halt State</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Clear Video Technology for MID (Intel&reg; CVT for MID)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">VT-x de Intel&reg; con Extended Page Tables (EPT)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Secure Key</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; TSX-NI</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Programa de Plataforma de Imagen Estable de Intel&reg; (SIPP)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; OS Guard</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Intel&reg; Clear Video</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Extensiones de protecci&oacute;n de software Intel&reg; (Intel&reg; SGX)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; 64</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n de Intel&reg; Identity Protection Technology</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n de Intel&reg; Secure Key Technology</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n del programa Intel&reg; de plataforma de imagen estable</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a de virtualizaci&oacute;n Intel&reg; (VT-x)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a de virtualizaci&oacute;n de Intel&reg; para E / S dirigida (VT-d)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n Intel&reg; TSX-NI</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Compatible con la tecnolog&iacute;a Intel Optane</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Boot Guard</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Idoneidad para la plataforma Intel&reg; vPro&trade;</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Condiciones ambientales</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intersecci&oacute;n T</td>\r\n<td style=\"width: 255.219px;\">100 &deg;C</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Detalles t&eacute;cnicos</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">La cach&eacute; del procesador</td>\r\n<td style=\"width: 255.219px;\">12288 KB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipo de producto</td>\r\n<td style=\"width: 255.219px;\">Processor</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria m&aacute;xima de adaptador de gr&aacute;ficos</td>\r\n<td style=\"width: 255.219px;\">64 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Peso y dimensiones</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Ancho del paquete</td>\r\n<td style=\"width: 255.219px;\">44 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Profundidad del paquete</td>\r\n<td style=\"width: 255.219px;\">116 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Altura del paquete</td>\r\n<td style=\"width: 255.219px;\">101 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Peso del paquete</td>\r\n<td style=\"width: 255.219px;\">87 g</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tama&ntilde;o del CPU</td>\r\n<td style=\"width: 255.219px;\">37.5 x 37.5 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Otras caracter&iacute;sticas</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria interna m&aacute;xima</td>\r\n<td style=\"width: 255.219px;\">65536 MB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Generaci&oacute;n</td>\r\n<td style=\"width: 255.219px;\">9th Generation</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Ancho de banda de bus</td>\r\n<td style=\"width: 255.219px;\">8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Unidades de tipo de bus</td>\r\n<td style=\"width: 255.219px;\">GT/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Fecha de lanzamiento</td>\r\n<td style=\"width: 255.219px;\">Q4\'18</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia m&aacute;xima de resoluci&oacute;n y actualizaci&oacute;n (DisplayPort)</td>\r\n<td style=\"width: 255.219px;\">4096x2304@60Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia m&aacute;xima de resoluci&oacute;n y actualizaci&oacute;n (HDMI)</td>\r\n<td style=\"width: 255.219px;\">4096x2304@24Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia m&aacute;xima de resoluci&oacute;n y actualizaci&oacute;n (Sensor plano integrado)</td>\r\n<td style=\"width: 255.219px;\">4096x2304@60Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Estado</td>\r\n<td style=\"width: 255.219px;\">Launched</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria m&aacute;xima</td>\r\n<td style=\"width: 255.219px;\">128 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Nombre de marca del procesador</td>\r\n<td style=\"width: 255.219px;\">9th Gen Intel Core i7\\n9th Gen Intel Core i7 Processor</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">&Uacute;ltimo cambio</td>\r\n<td style=\"width: 255.219px;\">63903513</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Familia de producto</td>\r\n<td style=\"width: 255.219px;\">Intel Core Processors</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Velocidad del bus</td>\r\n<td style=\"width: 255.219px;\">8 GT/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">ID de procesador</td>\r\n<td style=\"width: 255.219px;\">0x3E98</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</body>\r\n</html>', 10, '5f8cd2ad42dac.jpeg', '360.00', '380.00', 'DISPONIBLE', 47, 'procesador_intel_core_i7_9700k_36ghz_lga_1151_zocalo_h4_9th_gen', 5),
-(14, 'Teclado Vorago Kb-102, Cable 1.50m Usb 2.0, Negro', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam nesciunt consectetur est rerum voluptas nihil ipsum quis a possimus quibusdam?', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<table style=\"width: 586px;\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Teclado</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Interfaz del dispositivo</td>\r\n<td style=\"width: 332.219px;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Uso recomendado</td>\r\n<td style=\"width: 332.219px;\">Universal</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Idioma del teclado</td>\r\n<td style=\"width: 332.219px;\">Espa&ntilde;ol</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Tecnolog&iacute;a de conectividad</td>\r\n<td style=\"width: 332.219px;\">Al&aacute;mbrico</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Utilizar con</td>\r\n<td style=\"width: 332.219px;\">Universal</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Formato del teclado</td>\r\n<td style=\"width: 332.219px;\">Est&aacute;ndar</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Estilo de teclado</td>\r\n<td style=\"width: 332.219px;\">Curvo</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Dispositivos de teclado integrados</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclado, cantidad de teclas</td>\r\n<td style=\"width: 332.219px;\">104</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclas de acceso directo</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Descansa mu&ntilde;ecas</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclado num&eacute;rico</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclas de Windows</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclado de tama&ntilde;o completo</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Dividir teclado</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Tablero estilo islas</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Dise&ntilde;o</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Color del producto</td>\r\n<td style=\"width: 332.219px;\">Negro</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Retroiluminaci&oacute;n</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Ergonom&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Conectar y usar (Plug and Play)</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Longitud de cable</td>\r\n<td style=\"width: 332.219px;\">1,5 m</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Control de energ&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Alimentaci&oacute;n</td>\r\n<td style=\"width: 332.219px;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Consumo de energ&iacute;a</td>\r\n<td style=\"width: 332.219px;\">35 mA</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Rat&oacute;n</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Rat&oacute;n incluido</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Requisitos del sistema</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Sistema operativo Windows soportado</td>\r\n<td style=\"width: 332.219px;\">Windows 7 Enterprise, Windows 7 Enterprise x64, Windows 7 Home Basic, Windows 7 Home Basic x64, Windows 7 Home Premium, Windows 7 Home Premium x64, Windows 7 Professional, Windows 7 Professional x64, Windows 7 Starter, Windows 7 Starter x64, Windows 7 Ultimate, Windows 7 Ultimate x64, Windows 8, Windows 8 Enterprise, Windows 8 Enterprise x64, Windows 8 Pro, Windows 8 Pro x64, Windows 8 x64, Windows 8.1, Windows 8.1 Enterprise, Windows 8.1 Enterprise x64, Windows 8.1 Pro, Windows 8.1 Pro x64, Windows 8.1 x64, Windows XP Home, Windows XP Home x64, Windows XP Professional, Windows XP Professional x64</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Peso y dimensiones</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Dimensiones de teclado (Ancho x Profundidad x Altura)</td>\r\n<td style=\"width: 332.219px;\">436 x 135 x 20 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Peso del teclado</td>\r\n<td style=\"width: 332.219px;\">347 g</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</body>\r\n</html>', 8, '5f8ccb685e981.jpeg', '29.00', '50.00', 'DISPONIBLE', 118, 'teclado_vorago_kb_102_cable_150m_usb_20_negro', 3),
+(13, 'Procesador Intel Core I7-9700k, 3.6ghz, Lga 1151 (zócalo H4) 9th Gen,', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea deserunt quis consectetur voluptatem minus repudiandae? Deserunt rem quasi repellat in!', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<table style=\"width: 464px;\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Procesador</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Familia de procesador</td>\r\n<td style=\"width: 255.219px;\">9na generaci&oacute;n de procesadores Intel&reg; Core&trade; i7</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia del procesador</td>\r\n<td style=\"width: 255.219px;\">3,6 GHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero de n&uacute;cleos de procesador</td>\r\n<td style=\"width: 255.219px;\">8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Socket de procesador</td>\r\n<td style=\"width: 255.219px;\">LGA 1151 (Z&oacute;calo H4)</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Componente para</td>\r\n<td style=\"width: 255.219px;\">PC</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Litograf&iacute;a del procesador</td>\r\n<td style=\"width: 255.219px;\">14 nm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Caja</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Refrigerador incluido</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Fabricante de procesador</td>\r\n<td style=\"width: 255.219px;\">Intel</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Modelo del procesador</td>\r\n<td style=\"width: 255.219px;\">i7-9700K</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero de filamentos de procesador</td>\r\n<td style=\"width: 255.219px;\">8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">System bus data transfer rate</td>\r\n<td style=\"width: 255.219px;\">8 GT/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Modo de procesador operativo</td>\r\n<td style=\"width: 255.219px;\">64 bits</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Cach&eacute; del procesador</td>\r\n<td style=\"width: 255.219px;\">12 MB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipo de cache en procesador</td>\r\n<td style=\"width: 255.219px;\">Smart Cache</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Escalonamiento</td>\r\n<td style=\"width: 255.219px;\">P0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia del procesador turbo</td>\r\n<td style=\"width: 255.219px;\">4,9 GHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipos de bus</td>\r\n<td style=\"width: 255.219px;\">DMI3</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Procesador nombre en clave</td>\r\n<td style=\"width: 255.219px;\">Coffee Lake</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Ancho de banda de memoria soportada por el procesador (max)</td>\r\n<td style=\"width: 255.219px;\">41,6 GB/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">c&oacute;digo de procesador</td>\r\n<td style=\"width: 255.219px;\">SRELT</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Procesador ARK ID</td>\r\n<td style=\"width: 255.219px;\">186604</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Memoria</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Canales de memoria</td>\r\n<td style=\"width: 255.219px;\">Dual-channel</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria interna m&aacute;xima que admite el procesador</td>\r\n<td style=\"width: 255.219px;\">64 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipos de memoria que admite el procesador</td>\r\n<td style=\"width: 255.219px;\">DDR4-SDRAM</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Velocidad de reloj de memoria que admite el procesador</td>\r\n<td style=\"width: 255.219px;\">2666 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">ECC</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Gr&aacute;ficos</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Adaptador de gr&aacute;ficos discreto</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Modelo de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">Intel&reg; UHD Graphics 630</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria m&aacute;xima de adaptador de gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">64 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Salidas compatibles de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">DisplayPort,Embedded DisplayPort (eDP),HDMI</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia base de gr&aacute;ficos incorporada</td>\r\n<td style=\"width: 255.219px;\">350 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia din&aacute;mica (m&aacute;x) de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">1200 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero de pantallas soportadas (gr&aacute;ficos incorporados)</td>\r\n<td style=\"width: 255.219px;\">3</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">4K soporte de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n DirectX de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">12.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n OpenGL de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">4.5</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Resoluci&oacute;n m&aacute;xima de adaptador gr&aacute;fico incorporado (DisplayPort)</td>\r\n<td style=\"width: 255.219px;\">4096 x 2304 Pixeles</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Resoluci&oacute;n m&aacute;xima de adaptador gr&aacute;fico incorporado (eDP - Integrated Flat Panel)</td>\r\n<td style=\"width: 255.219px;\">4096 x 2304 Pixeles</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Resoluci&oacute;n m&aacute;xima de adaptador gr&aacute;fico incorporado (HDMI)</td>\r\n<td style=\"width: 255.219px;\">4096 x 2304 Pixeles</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia de actualizaci&oacute;n de adaptador gr&aacute;fico incorporado a la resoluci&oacute;n m&aacute;xima (DisplayPort)</td>\r\n<td style=\"width: 255.219px;\">60 Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia de actualizaci&oacute;n de adaptador gr&aacute;fico incorporado a la resoluci&oacute;n m&aacute;xima (eDP - Integrated Flat Panel)</td>\r\n<td style=\"width: 255.219px;\">60 Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia de actualizaci&oacute;n de adaptador gr&aacute;fico incorporado a la resoluci&oacute;n m&aacute;xima (HDMI)</td>\r\n<td style=\"width: 255.219px;\">24 Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">ID de adaptador gr&aacute;fico incorporado</td>\r\n<td style=\"width: 255.219px;\">0x3E98</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Control de energ&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Potencia de dise&ntilde;o t&eacute;rmico (TDP)</td>\r\n<td style=\"width: 255.219px;\">95 W</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Caracter&iacute;sticas</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Execute Disable Bit</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Estados de inactividad</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Thermal Monitoring de Intel</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">N&uacute;mero m&aacute;ximo de buses PCI Express</td>\r\n<td style=\"width: 255.219px;\">16</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n de entradas de PCI Express</td>\r\n<td style=\"width: 255.219px;\">3.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Configuraciones PCI Express</td>\r\n<td style=\"width: 255.219px;\">1x16,1x8+2x4,2x8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Set de instrucciones soportadas</td>\r\n<td style=\"width: 255.219px;\">AVX 2.0,SSE4.1,SSE4.2</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Escalabilidad</td>\r\n<td style=\"width: 255.219px;\">1S</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Configuraci&oacute;n de CPU (m&aacute;ximo)</td>\r\n<td style=\"width: 255.219px;\">1</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Opciones integradas disponibles</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Caracteristicas t&eacute;cnicas de la soluci&oacute;n t&eacute;rmica</td>\r\n<td style=\"width: 255.219px;\">PCG 2015D</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Revisi&oacute;n PCI Express CEM</td>\r\n<td style=\"width: 255.219px;\">3.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Segmento de mercado</td>\r\n<td style=\"width: 255.219px;\">DT</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">C&oacute;digo de Sistema de Armomizaci&oacute;n (SA)</td>\r\n<td style=\"width: 255.219px;\">8542310001</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Caracter&iacute;sticas especiales del procesador</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel Hyper-Threading</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a de protecci&oacute;n de identidad de Intel&reg; (Intel&reg; IPT)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Intel&reg; Turbo Boost</td>\r\n<td style=\"width: 255.219px;\">2.0</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Intel&reg; Quick Sync Video</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Tecnolog&iacute;a InTru&trade; 3D</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Clear Video HD de Intel&reg; (Intel&reg; CVT HD)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; AES Nuevas instrucciones (Intel&reg; AES-NI)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a SpeedStep mejorada de Intel</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Trusted Execution de Intel&reg;</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Memory Protection Extensions (Intel&reg; MPX)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Enhanced Halt State</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Clear Video Technology for MID (Intel&reg; CVT for MID)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">VT-x de Intel&reg; con Extended Page Tables (EPT)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Secure Key</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; TSX-NI</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Programa de Plataforma de Imagen Estable de Intel&reg; (SIPP)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; OS Guard</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a Intel&reg; Clear Video</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Extensiones de protecci&oacute;n de software Intel&reg; (Intel&reg; SGX)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; 64</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n de Intel&reg; Identity Protection Technology</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n de Intel&reg; Secure Key Technology</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n del programa Intel&reg; de plataforma de imagen estable</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a de virtualizaci&oacute;n Intel&reg; (VT-x)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tecnolog&iacute;a de virtualizaci&oacute;n de Intel&reg; para E / S dirigida (VT-d)</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Versi&oacute;n Intel&reg; TSX-NI</td>\r\n<td style=\"width: 255.219px;\">1,00</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Compatible con la tecnolog&iacute;a Intel Optane</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intel&reg; Boot Guard</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Idoneidad para la plataforma Intel&reg; vPro&trade;</td>\r\n<td style=\"width: 255.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Condiciones ambientales</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Intersecci&oacute;n T</td>\r\n<td style=\"width: 255.219px;\">100 &deg;C</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Detalles t&eacute;cnicos</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">La cach&eacute; del procesador</td>\r\n<td style=\"width: 255.219px;\">12288 KB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tipo de producto</td>\r\n<td style=\"width: 255.219px;\">Processor</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria m&aacute;xima de adaptador de gr&aacute;ficos</td>\r\n<td style=\"width: 255.219px;\">64 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Peso y dimensiones</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Ancho del paquete</td>\r\n<td style=\"width: 255.219px;\">44 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Profundidad del paquete</td>\r\n<td style=\"width: 255.219px;\">116 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Altura del paquete</td>\r\n<td style=\"width: 255.219px;\">101 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Peso del paquete</td>\r\n<td style=\"width: 255.219px;\">87 g</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Tama&ntilde;o del CPU</td>\r\n<td style=\"width: 255.219px;\">37.5 x 37.5 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 449.219px;\" colspan=\"2\">Otras caracter&iacute;sticas</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria interna m&aacute;xima</td>\r\n<td style=\"width: 255.219px;\">65536 MB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Generaci&oacute;n</td>\r\n<td style=\"width: 255.219px;\">9th Generation</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Ancho de banda de bus</td>\r\n<td style=\"width: 255.219px;\">8</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Unidades de tipo de bus</td>\r\n<td style=\"width: 255.219px;\">GT/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Fecha de lanzamiento</td>\r\n<td style=\"width: 255.219px;\">Q4\'18</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia m&aacute;xima de resoluci&oacute;n y actualizaci&oacute;n (DisplayPort)</td>\r\n<td style=\"width: 255.219px;\">4096x2304@60Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia m&aacute;xima de resoluci&oacute;n y actualizaci&oacute;n (HDMI)</td>\r\n<td style=\"width: 255.219px;\">4096x2304@24Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Frecuencia m&aacute;xima de resoluci&oacute;n y actualizaci&oacute;n (Sensor plano integrado)</td>\r\n<td style=\"width: 255.219px;\">4096x2304@60Hz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Estado</td>\r\n<td style=\"width: 255.219px;\">Launched</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Memoria m&aacute;xima</td>\r\n<td style=\"width: 255.219px;\">128 GB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Nombre de marca del procesador</td>\r\n<td style=\"width: 255.219px;\">9th Gen Intel Core i7\\n9th Gen Intel Core i7 Processor</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">&Uacute;ltimo cambio</td>\r\n<td style=\"width: 255.219px;\">63903513</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Familia de producto</td>\r\n<td style=\"width: 255.219px;\">Intel Core Processors</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">Velocidad del bus</td>\r\n<td style=\"width: 255.219px;\">8 GT/s</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 180.219px;\">ID de procesador</td>\r\n<td style=\"width: 255.219px;\">0x3E98</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</body>\r\n</html>', 10, '5f8cd2ad42dac.jpeg', '360.00', '380.00', 'DISPONIBLE', 47, 'procesador_intel_core_i7_9700k_36ghz_lga_1151_zocalo_h4_9th_gen', 6),
+(14, 'Teclado Vorago Kb-102, Cable 1.50m Usb 2.0, Negro', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam nesciunt consectetur est rerum voluptas nihil ipsum quis a possimus quibusdam?', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<table style=\"width: 586px;\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Teclado</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Interfaz del dispositivo</td>\r\n<td style=\"width: 332.219px;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Uso recomendado</td>\r\n<td style=\"width: 332.219px;\">Universal</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Idioma del teclado</td>\r\n<td style=\"width: 332.219px;\">Espa&ntilde;ol</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Tecnolog&iacute;a de conectividad</td>\r\n<td style=\"width: 332.219px;\">Al&aacute;mbrico</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Utilizar con</td>\r\n<td style=\"width: 332.219px;\">Universal</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Formato del teclado</td>\r\n<td style=\"width: 332.219px;\">Est&aacute;ndar</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Estilo de teclado</td>\r\n<td style=\"width: 332.219px;\">Curvo</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Dispositivos de teclado integrados</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclado, cantidad de teclas</td>\r\n<td style=\"width: 332.219px;\">104</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclas de acceso directo</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Descansa mu&ntilde;ecas</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclado num&eacute;rico</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclas de Windows</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Teclado de tama&ntilde;o completo</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Dividir teclado</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Tablero estilo islas</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Dise&ntilde;o</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Color del producto</td>\r\n<td style=\"width: 332.219px;\">Negro</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Retroiluminaci&oacute;n</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Ergonom&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Conectar y usar (Plug and Play)</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Longitud de cable</td>\r\n<td style=\"width: 332.219px;\">1,5 m</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Control de energ&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Alimentaci&oacute;n</td>\r\n<td style=\"width: 332.219px;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Consumo de energ&iacute;a</td>\r\n<td style=\"width: 332.219px;\">35 mA</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Rat&oacute;n</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Rat&oacute;n incluido</td>\r\n<td style=\"width: 332.219px;\"><img src=\"https://www.zegucom.com.mx/images/no.png\" alt=\"No\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Requisitos del sistema</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Sistema operativo Windows soportado</td>\r\n<td style=\"width: 332.219px;\">Windows 7 Enterprise, Windows 7 Enterprise x64, Windows 7 Home Basic, Windows 7 Home Basic x64, Windows 7 Home Premium, Windows 7 Home Premium x64, Windows 7 Professional, Windows 7 Professional x64, Windows 7 Starter, Windows 7 Starter x64, Windows 7 Ultimate, Windows 7 Ultimate x64, Windows 8, Windows 8 Enterprise, Windows 8 Enterprise x64, Windows 8 Pro, Windows 8 Pro x64, Windows 8 x64, Windows 8.1, Windows 8.1 Enterprise, Windows 8.1 Enterprise x64, Windows 8.1 Pro, Windows 8.1 Pro x64, Windows 8.1 x64, Windows XP Home, Windows XP Home x64, Windows XP Professional, Windows XP Professional x64</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 571.219px;\" colspan=\"2\">Peso y dimensiones</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Dimensiones de teclado (Ancho x Profundidad x Altura)</td>\r\n<td style=\"width: 332.219px;\">436 x 135 x 20 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 225.219px;\">Peso del teclado</td>\r\n<td style=\"width: 332.219px;\">347 g</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</body>\r\n</html>', 8, '5f8ccb685e981.jpeg', '29.00', '50.00', 'DISPONIBLE', 117, 'teclado_vorago_kb_102_cable_150m_usb_20_negro', 4),
 (16, 'Cable Adaptador Startech (sdcotg), Usb A Hembra Otg Para Samsung Galaxy Tab', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam nesciunt consectetur est rerum voluptas nihil ipsum quis a possimus quibusdam?', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<table style=\"width: 436px;\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 421.219px;\" colspan=\"2\">Puertos e Interfaces</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Conector 1</td>\r\n<td style=\"width: 231.219px;\">Samsung 30p</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Conector 2</td>\r\n<td style=\"width: 231.219px;\">USB A</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">G&eacute;nero del conector</td>\r\n<td style=\"width: 231.219px;\">Macho/Hembra</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Longitud de cable</td>\r\n<td style=\"width: 231.219px;\">0,1524 m</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Contactos del conector chapado</td>\r\n<td style=\"width: 231.219px;\">N&iacute;quel</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 421.219px;\" colspan=\"2\">Desempe&ntilde;o</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Color del producto</td>\r\n<td style=\"width: 231.219px;\">Negro</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Material de la carcasa</td>\r\n<td style=\"width: 231.219px;\">PVC</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Material del forro del cable</td>\r\n<td style=\"width: 231.219px;\">Cloruro de polivinilo (PVC)</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">AWG calibre del cable</td>\r\n<td style=\"width: 231.219px;\">26/28</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Blindaje de cable</td>\r\n<td style=\"width: 231.219px;\">Papel de aluminio mylar</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Acorde RoHS</td>\r\n<td style=\"width: 231.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Certificaci&oacute;n</td>\r\n<td style=\"width: 231.219px;\">CE, REACH</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Productos compatibles</td>\r\n<td style=\"width: 231.219px;\">Samsung Galaxy Tab</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 421.219px;\" colspan=\"2\">Peso y dimensiones</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Peso</td>\r\n<td style=\"width: 231.219px;\">8 g</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 421.219px;\" colspan=\"2\">Empaquetado</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Ancho del paquete</td>\r\n<td style=\"width: 231.219px;\">125 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Profundidad del paquete</td>\r\n<td style=\"width: 231.219px;\">225 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Altura del paquete</td>\r\n<td style=\"width: 231.219px;\">5 mm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Peso del paquete</td>\r\n<td style=\"width: 231.219px;\">14 g</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 421.219px;\" colspan=\"2\">Contenido del embalaje</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 176.219px;\">Cantidad por paquete</td>\r\n<td style=\"width: 231.219px;\">1 pieza(s)</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</body>\r\n</html>', 9, '5f8cd3739fa5e.jpeg', '12.00', '15.00', 'DISPONIBLE', 299, 'cable_adaptador_startech_sdcotg_usb_a_hembra_otg_para_samsung_galaxy_tab', 1),
 (18, 'Procesador Amd Ryzen 5 3600xt, Soket Am4, 3.8 Ghz, Max 4.5ghz,', 'NUEVO EDITADO There are 2 version for Xiaomi MI TV 43 Inch Smart TV due to different dipatches. There are some appearance differences between them.', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<table style=\"width: 560px;\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 545.219px;\" colspan=\"2\">Procesador</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Familia de procesador</td>\r\n<td style=\"width: 277.219px;\">3rd Generation AMD Ryzen 5</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Frecuencia del procesador</td>\r\n<td style=\"width: 277.219px;\">3,8 GHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">N&uacute;mero de n&uacute;cleos de procesador</td>\r\n<td style=\"width: 277.219px;\">6</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Socket de procesador</td>\r\n<td style=\"width: 277.219px;\">Z&oacute;calo AM4</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Componente para</td>\r\n<td style=\"width: 277.219px;\">PC</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Litograf&iacute;a del procesador</td>\r\n<td style=\"width: 277.219px;\">7 nm</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Caja</td>\r\n<td style=\"width: 277.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Refrigerador incluido</td>\r\n<td style=\"width: 277.219px;\"><img src=\"https://www.zegucom.com.mx/images/si.png\" alt=\"Si\" /></td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Fabricante de procesador</td>\r\n<td style=\"width: 277.219px;\">AMD</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Modelo del procesador</td>\r\n<td style=\"width: 277.219px;\">3600XT</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">N&uacute;mero de filamentos de procesador</td>\r\n<td style=\"width: 277.219px;\">12</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Modo de procesador operativo</td>\r\n<td style=\"width: 277.219px;\">64 bits</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Frecuencia del procesador turbo</td>\r\n<td style=\"width: 277.219px;\">4,5 GHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 545.219px;\" colspan=\"2\">Memoria</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Canales de memoria</td>\r\n<td style=\"width: 277.219px;\">Dual-channel</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Tipos de memoria que admite el procesador</td>\r\n<td style=\"width: 277.219px;\">DDR4-SDRAM</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Velocidad de reloj de memoria que admite el procesador</td>\r\n<td style=\"width: 277.219px;\">3200 MHz</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 545.219px;\" colspan=\"2\">Control de energ&iacute;a</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Potencia de dise&ntilde;o t&eacute;rmico (TDP)</td>\r\n<td style=\"width: 277.219px;\">95 W</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 545.219px;\" colspan=\"2\">Caracter&iacute;sticas</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 254.219px;\">Versi&oacute;n de entradas de PCI Express</td>\r\n<td style=\"width: 277.219px;\">4.0</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</body>\r\n</html>', 10, '5f8ccc7902b2a.jpeg', '299.00', '400.00', 'DISPONIBLE', 99, 'procesador_amd_ryzen_5_3600xt_soket_am4_38_ghz_max_45ghz', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `resena`
+-- Table structure for table `resena`
 --
 
 CREATE TABLE `resena` (
@@ -342,7 +348,7 @@ CREATE TABLE `resena` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `resena`
+-- Dumping data for table `resena`
 --
 
 INSERT INTO `resena` (`id`, `resena`, `iduser`, `idproducto`, `createAt`, `foto_uno`, `foto_dos`, `foto_tres`) VALUES
@@ -352,7 +358,7 @@ INSERT INTO `resena` (`id`, `resena`, `iduser`, `idproducto`, `createAt`, `foto_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -366,24 +372,28 @@ CREATE TABLE `users` (
   `telefono` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tipo_doc` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `num_doc` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `credit` decimal(7,2) NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `email_verified_at`, `password`, `role`, `telefono`, `tipo_doc`, `num_doc`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Francisco', 'Zenteno', 'admin@dealpc.com', NULL, '$2y$10$pGoaLkcOLTwTScKhg6M/zOIKQyan7WO9nZTWM85Y6f0bVXx49aaSa', 'ADMIN', NULL, NULL, NULL, NULL, '2020-03-17 23:55:36', '2020-03-17 23:55:36'),
-(5, 'Irvin', 'Navarro', 'irvinnavarro@gmail.com', NULL, '$2y$10$s8P8VhNeTK.bb7ITzte/F.xUr3rt3gcBBprjmvjB0.uIP6U/tpk5u', 'USER', '4491430727', 'DNI', '70612413', NULL, NULL, NULL),
-(6, 'Litzy', 'Andrade', 'litzyandrade@gmail.com', NULL, '$2y$10$E6rWqTq/wEB3yfG83ldFV.PbA9Q0fAtJVo8ghILc8OEFdtCe3nm2.', 'USER', '4494392589', 'DNI', '78489586', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `fullname`, `email`, `email_verified_at`, `password`, `role`, `telefono`, `tipo_doc`, `num_doc`, `credit`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Francisco', 'Zenteno', 'admin@dealpc.com', NULL, '$2y$10$pGoaLkcOLTwTScKhg6M/zOIKQyan7WO9nZTWM85Y6f0bVXx49aaSa', 'ADMIN', NULL, NULL, NULL, '210.00', NULL, '2020-10-17 23:55:36', '2020-10-17 23:55:36'),
+(5, 'Irvin', 'Navarro', 'irvinnavarro@gmail.com', NULL, '$2y$10$s8P8VhNeTK.bb7ITzte/F.xUr3rt3gcBBprjmvjB0.uIP6U/tpk5u', 'USER', '4491430727', 'DNI', '70612413', '0.00', NULL, '2020-10-23 13:30:20', '2020-10-23 13:30:20'),
+(6, 'Litzy', 'Andrade', 'litzyandrade@gmail.com', NULL, '$2y$10$E6rWqTq/wEB3yfG83ldFV.PbA9Q0fAtJVo8ghILc8OEFdtCe3nm2.', 'USER', '4494392589', 'DNI', '78489586', '0.00', NULL, '2020-11-01 15:23:29', '2020-11-01 15:23:29'),
+(7, NULL, NULL, 'Andrade_SHXX99@hotmail.com', NULL, '$2y$10$T7NKZpxWfq8CJWf8iFcKIeN.Jycusttu7KHYZWwJlRgwk/reHm9ra', 'USER', NULL, NULL, NULL, '0.00', NULL, '2020-11-02 12:23:24', '2020-11-02 12:23:24'),
+(10, NULL, NULL, 'pruebaborrar@gmail.com', NULL, '$2y$10$r1HnVNauHNXZ63zCmzgMkOsc3kRJUzJ2DoJQKvgtbf5RENIaoHw4.', 'USER', NULL, NULL, NULL, '0.00', NULL, '2020-11-09 01:14:48', NULL),
+(11, 'Jose', 'Cordoba', 'jose.cordoba0192@gmail.com', NULL, '$2y$10$QzyNJq7uEJlRNr2ezetsjuDJmykLbOhzmZxmpLdwhpvrJeHfR1aBm', 'USER', NULL, NULL, NULL, '38.90', NULL, '2020-11-09 05:13:06', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta`
+-- Table structure for table `venta`
 --
 
 CREATE TABLE `venta` (
@@ -404,7 +414,7 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `venta`
+-- Dumping data for table `venta`
 --
 
 INSERT INTO `venta` (`id`, `codigo`, `transaccion`, `iduser`, `idproducto`, `metodo`, `cantidad`, `createAt`, `iddireccion`, `track`, `tiempo`, `medio_postal`, `estado`, `total`) VALUES
@@ -418,84 +428,87 @@ INSERT INTO `venta` (`id`, `codigo`, `transaccion`, `iduser`, `idproducto`, `met
 (41, '5e855f6ddd3e0', 'PAYID-L2CV6VI1K154976N1252501J', 5, 18, 'Paypal', 2, '2020-04-01', 4, NULL, NULL, NULL, 'Reembolsado', '300.00'),
 (44, '5eae060954167', 'tkn_test_OabqPk4g6vU4cXZC', 5, 18, 'Paypal', 1, '2020-05-02', 4, NULL, NULL, NULL, 'Procesando', '150.00'),
 (45, '5eae1163753ab', 'tkn_test_zIAIqJJIgHAbn6pj', 5, 16, 'Tarjeta de Crédito', 1, '2020-05-02', 4, NULL, NULL, NULL, 'Procesando', '12.00'),
-(46, '5eae11e3c8736', 'PAYID-L2XBDUQ2NP14529RB696542E', 5, 12, 'Paypal', 1, '2020-05-02', 4, NULL, NULL, NULL, 'Procesando', '2100.00');
+(46, '5eae11e3c8736', 'PAYID-L2XBDUQ2NP14529RB696542E', 5, 12, 'Paypal', 1, '2020-05-02', 4, NULL, NULL, NULL, 'Procesando', '2100.00'),
+(47, '5fa8cf849a85a', 'PAYID-L6UM6YY66K83677UR361615U', 1, 12, 'Paypal', 1, '2020-11-09', 8, NULL, NULL, NULL, 'Enviado', '2100.00'),
+(48, '5fa8d0d80f4a0', 'PAYID-L6UNBSA87991933NU969901E', 11, 14, 'Paypal', 1, '2020-11-09', 9, NULL, NULL, NULL, 'Enviado', '29.00'),
+(49, '5fa8d0d8480f3', 'PAYID-L6UNBSA87991933NU969901E', 11, 13, 'Paypal', 1, '2020-11-09', 9, NULL, NULL, NULL, 'Reembolsado', '360.00');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `cancelacion`
+-- Indexes for table `cancelacion`
 --
 ALTER TABLE `cancelacion`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_cancelacion_venta` (`idventa`);
 
 --
--- Indices de la tabla `carrito`
+-- Indexes for table `carrito`
 --
 ALTER TABLE `carrito`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_carrito_compra` (`idproducto`);
 
 --
--- Indices de la tabla `categoria`
+-- Indexes for table `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `configuraciones`
+-- Indexes for table `configuraciones`
 --
 ALTER TABLE `configuraciones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `direccion`
+-- Indexes for table `direccion`
 --
 ALTER TABLE `direccion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `galeria`
+-- Indexes for table `galeria`
 --
 ALTER TABLE `galeria`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_galeria_producto` (`idproducto`);
 
 --
--- Indices de la tabla `mensajes`
+-- Indexes for table `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_categoria_producto` (`idcategoria`);
 
 --
--- Indices de la tabla `resena`
+-- Indexes for table `resena`
 --
 ALTER TABLE `resena`
   ADD PRIMARY KEY (`id`),
@@ -503,14 +516,14 @@ ALTER TABLE `resena`
   ADD KEY `fk_reseña_user` (`iduser`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indices de la tabla `venta`
+-- Indexes for table `venta`
 --
 ALTER TABLE `venta`
   ADD PRIMARY KEY (`id`),
@@ -518,124 +531,124 @@ ALTER TABLE `venta`
   ADD KEY `fk_venta_direccion` (`iddireccion`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `cancelacion`
+-- AUTO_INCREMENT for table `cancelacion`
 --
 ALTER TABLE `cancelacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `carrito`
+-- AUTO_INCREMENT for table `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
--- AUTO_INCREMENT de la tabla `categoria`
+-- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `configuraciones`
+-- AUTO_INCREMENT for table `configuraciones`
 --
 ALTER TABLE `configuraciones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `direccion`
+-- AUTO_INCREMENT for table `direccion`
 --
 ALTER TABLE `direccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `galeria`
+-- AUTO_INCREMENT for table `galeria`
 --
 ALTER TABLE `galeria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
--- AUTO_INCREMENT de la tabla `mensajes`
+-- AUTO_INCREMENT for table `mensajes`
 --
 ALTER TABLE `mensajes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT de la tabla `resena`
+-- AUTO_INCREMENT for table `resena`
 --
 ALTER TABLE `resena`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `venta`
+-- AUTO_INCREMENT for table `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `cancelacion`
+-- Constraints for table `cancelacion`
 --
 ALTER TABLE `cancelacion`
   ADD CONSTRAINT `fk_cancelacion_venta` FOREIGN KEY (`idventa`) REFERENCES `venta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `carrito`
+-- Constraints for table `carrito`
 --
 ALTER TABLE `carrito`
   ADD CONSTRAINT `fk_carrito_compra` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `galeria`
+-- Constraints for table `galeria`
 --
 ALTER TABLE `galeria`
   ADD CONSTRAINT `fk_galeria_producto` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `producto`
+-- Constraints for table `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `fk_categoria_producto` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `resena`
+-- Constraints for table `resena`
 --
 ALTER TABLE `resena`
   ADD CONSTRAINT `fk_reseña_producto` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_reseña_user` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `venta`
+-- Constraints for table `venta`
 --
 ALTER TABLE `venta`
   ADD CONSTRAINT `fk_venta_direccion` FOREIGN KEY (`iddireccion`) REFERENCES `direccion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

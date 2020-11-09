@@ -44,6 +44,8 @@ Route::patch('admin/venta/detalle/datos/{id}','AdminController@update_datos')->n
 Route::get('admin/mensajes','AdminController@mensajes')->name('mensajes');
 
 /*USUARIOS---------------------------------*/
+Route::get('admin/usuarios','UsuarioController@mostrar')->name('mostrar.usuario');
+Route::delete('admin/usuarios/eliminar/{id}','UsuarioController@destroy_usuario')->name('eliminar.usuario');
 Route::get('sesion','InicioController@sesion_usuario')->name('login.user');
 Route::get('','InicioController@index')->name('inicio');
 Route::post('registro','InicioController@registro_rapido')->name('registro.rapido');
@@ -53,6 +55,9 @@ Route::get('cuenta/direcciones','UsuarioController@direccion')->name('direccion'
 Route::post('cuenta/direcciones','UsuarioController@direccion_registro')->name('direccion_registro');
 Route::post('cuenta/direccion/{id}','UsuarioController@direccion_eliminar')->name('direccion_eliminar');
 Route::delete('cuenta/direccion/{id}','UsuarioController@direccion_eliminar')->name('direccion_eliminar');
+Route::get('cuenta/loyalty','UsuarioController@loyalty')->name('loyalty');
+
+
 
 Route::get('productos','InicioController@productos')->name('productos');
 

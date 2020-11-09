@@ -7,7 +7,6 @@
     
                 $config = DB::table('configuraciones')
                 ->first();
-                
         ?>
         <div class="product-wrapper"><div class="product-intro divide-line up-effect">
             @foreach ($productos as $item)

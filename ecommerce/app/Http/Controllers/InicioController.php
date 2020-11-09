@@ -8,6 +8,7 @@ use App\User;
 use App\Contacto;
 use App\Producto;
 use Session;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 
@@ -71,6 +72,9 @@ class InicioController extends Controller
         $user->email = $request->get('email');
         $user->password = bcrypt($request->get('password'));
         $user->role = 'USER';
+        $user->credit = 0.00;
+        $mytime = Carbon::now('America/Mexico_City');
+        $user->created_at = $mytime->toDateTimeString();
         $user->save();
 
         Session::flash('success', 'Ustéd se registro correctamente, ya puede iniciar sesión.');
