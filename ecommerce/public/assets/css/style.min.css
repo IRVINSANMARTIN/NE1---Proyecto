@@ -12234,45 +12234,25 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 }
 
-a {
-  text-decoration:none;
-  color:#2a2a2a;
-}
-.rainbow-button {
-
-  height:calc(3vw + 6px);
-  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-  border-radius:5px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-transform:uppercase;
-  font-size:1vw;
-  font-family:Arial, Helvetica, sans-serif;
-  font-weight:bold;
-  color:#FFF;
-  width: 100%;
-  min-width: 50px;  
-  max-width: 800px; 
-}
-.rainbow-button:after {
-  content:attr(alt);
-  width: 24vw;
-  height:3vw;
-  background-color:#191919;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#FFF;
-  width: 100%;
-
-  min-width: 50px;  
-  max-width: 800px; 
-}
-.rainbow-button:hover {
-  animation:slidebg 2s linear infinite;
-
-}
+.modal-title{
+  color: #FFFFFF;
+  
+  }
+  .modal-header{
+   background-color: #61C4CD;
+  }
+  .et-tot{
+    color: #249221
+  }
+  .et-puntos{
+    color: #249221
+  }
+  .modal-body{
+    text-align: center;
+  }
+  .modal-footer{
+    background-color: #EDEDF0;
+  }
 
 @keyframes slidebg {
   to {

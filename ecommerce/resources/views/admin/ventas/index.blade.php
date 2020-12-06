@@ -60,8 +60,11 @@
                         @foreach($ventas as $item)
                             <tbody>
                                 <tr>
-    
-                                    <td class="text-center">{{$item->name}} {{$item->fullname}}</td>
+                                    @if($item->name=='')
+                                        <td class="text-center">Cliente NO. {{$item->id}}</td>
+                                    @else 
+                                        <td class="text-center">{{$item->name}} {{$item->fullname}}</td>
+                                    @endif
                                     <td class="text-center">{{strtoupper($item->codigo)}}</td>
                                     <td class="text-center">{{$item->fecha}}</td>
                                     <td class="text-center">
@@ -80,6 +83,8 @@
                                     <td class="text-center">
                                         @if ($item->metodo == 'Paypal')
                                         <i class="fab fa-cc-paypal"></i> {{$item->metodo}}
+                                        @elseif ($item->metodo = 'Culqi')
+                                        <i class="fa fa-credit-card"></i> Loyalti 
                                         @endif
                                     </td>
                                     <td class="text-center">

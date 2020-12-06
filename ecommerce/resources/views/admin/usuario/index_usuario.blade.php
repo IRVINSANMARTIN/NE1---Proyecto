@@ -13,14 +13,14 @@
             </div>
 
             <div class="row">
-                @if(Session::has('succes'))
+                @if(Session::has('success'))
                     <div class="col-lg-12 form-group">
                         <div class="alert alert-success alert-outline alert-dismissible" role="alert">
                             <div class="alert-icon">
                                 <i class="far fa-fw fa-bell"></i>
                             </div>
                             <div class="alert-message">
-                               {{Session::get('succes')}}
+                               {{Session::get('success')}}
                             </div>
         
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -50,7 +50,7 @@
                                 <!--div class="col-lg-2">
                                     <div class="btn-group">
                                         <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Optiones
+                                        Opciones
                                         </button>
                                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
                                             <a class="dropdown-item" href="#"><i class="fas fa-archive"></i> Registrar usuario</a>

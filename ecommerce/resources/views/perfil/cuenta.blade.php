@@ -84,12 +84,12 @@
                                     <div class="form-group required-field">
                                         <label for="acc-name">Tipo de documento</label>
                                         <select name="tipo_doc" class="form-control">
-                                            @if ($usuario->tipo_doc == 'DNI')
-                                                <option value="DNI" selected>DNI</option>
-                                                <option value="Carnet de extrajeria">Carnet de extrajeria</option>
+                                            @if ($usuario->tipo_doc == 'INE')
+                                                <option value="INE" selected>INE</option>
+                                                <option value="Pasaporte">Pasaporte</option>
                                             @else
-                                                <option value="DNI" >DNI</option>
-                                                <option value="Carnet de extrajeria" selected>Carnet de extrajeria</option>
+                                                <option value="INE" >INE</option>
+                                                <option value="Pasaporte" selected>Pasaporte</option>
                                             @endif
                                         </select>
                                         @if ($errors->has('tipo_doc'))
@@ -100,7 +100,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group required-field">
-                                        <label for="acc-name">Numero de documento</label>
+                                        <label for="acc-name">Telefono de casa</label>
                                         <input type="number" class="form-control" id="acc-name" name="num_doc" required value="{{$usuario->num_doc}}" placeholder="Numero de documento">
                                         @if ($errors->has('num_doc'))
                                             <span class="help-block" style="color: #ff0000">{{ $errors->first('num_doc') }}</span>

@@ -20,7 +20,7 @@ class CategoriaController extends Controller
         $categoria->icono = $request->get('icono');
         $categoria->save();
 
-        Session::flash('succes', 'Se registró su categoria con exito');
+        Session::flash('success', 'Se registró su categoria con exito');
         return Redirect::to('admin/productos');
 
     }

@@ -49,7 +49,7 @@ class ProductoController extends Controller
             'poster'=>'required|max:10000',
             'stock'=>'required',
         ]);
-
+        
         try{
             
 
@@ -64,15 +64,21 @@ class ProductoController extends Controller
                 $producto->precio_ahora = $request->get('precio_ahora');
                 $producto->precio_antes = $request->get('precio_antes');
                 $producto->stock = $request->get('stock');
+                 //Aqui empieza la validación
+                 if($producto->stock<0 || $producto->precio_antes<0 || $producto->precio_ahora<0){ //Stock
+                    Session::flash('danger', 'No puede haber numeros negativos en STOCK Y PRECIOS, vuelve a intentar');
+                    return redirect()->back();
+                }
+                //Aquí termina la validación
                 $producto->estado = 'DISPONIBLE';
                 $producto->resena = $request->get('resena');
                 $producto->slug = Str::slug($request->get('titulo'),'_');
                 $producto->num_ventas = 0;
-
+                
                 $imageName = $imgname.'.'.$request->poster->extension();  
                 $request->poster->move(public_path('poster'), $imageName);
                 $producto->poster = $imageName;
-                $producto->save();
+                
         
                 try {
                     $foto = $request->file('foto');
@@ -85,7 +91,7 @@ class ProductoController extends Controller
                         $galeria->idproducto=$producto->id;/*ID AUTOGENERADO*/
                         $codigo = uniqid();
                         $foto[$cont]->move(public_path().'/soporte_img',$codigo.".".$foto[$cont]->getClientOriginalExtension());
-                        $galeria->foto=$codigo.".".$foto[$cont]->getClientOriginalExtension();                   
+                        $galeria->foto=$codigo.".".$foto[$cont]->getClientOriginalExtension();          
                         $galeria->save(); 
                         $cont = $cont+1;
                     }
@@ -93,7 +99,10 @@ class ProductoController extends Controller
                     Session::flash('danger', 'No ingresó imagenes para el producto');
                     return redirect()->back();
                 }
-                Session::flash('succes', 'Se registró su producto con exito');
+
+                $producto->save();
+
+                Session::flash('success', 'Se registró su producto con exito');
                 return Redirect::to('admin/productos');
             }else{
                 Session::flash('danger', 'El formato de las imagenes no estan aceptadas');
@@ -157,10 +166,16 @@ class ProductoController extends Controller
                     $imageName = $imgname.'.'.$request->poster->extension();  
                     $request->poster->move(public_path('poster'), $imageName);
                     $producto->poster = $imageName;
+                     //Aqui empieza la validación
+                    if($producto->stock<0 || $producto->precio_antes<0 || $producto->precio_ahora<0){ //Stock
+                        Session::flash('danger', 'No puede haber numeros negativos en STOCK Y PRECIOS, vuelve a intentar');
+                        return redirect()->back();
+                    }
+                    //Aquí termina la validación
                     $producto->update();
             
                     
-                    Session::flash('succes', 'Se actualizó su producto con exito');
+                    Session::flash('success', 'Se actualizó su producto con exito');
                     return Redirect::to('admin/productos');
                 }else{
                     Session::flash('danger', 'El formato de las imagenes no estan aceptadas');
@@ -178,9 +193,15 @@ class ProductoController extends Controller
                 $producto->estado = 'DISPONIBLE';
                 $producto->slug = Str::slug($request->get('titulo'),'_');
                 $producto->resena = $request->get('resena');
+                 //Aqui empieza la validación
+                if($producto->stock<0 || $producto->precio_antes<0 || $producto->precio_ahora<0){ //Stock
+                    Session::flash('danger', 'No puede haber numeros negativos en STOCK Y PRECIOS, vuelve a intentar');
+                    return redirect()->back();
+                }
+                //Aquí termina la validación
                 $producto->update();
 
-                Session::flash('succes', 'Se actualizó su producto con exito');
+                Session::flash('success', 'Se actualizó su producto con exito');
                 return Redirect::to('admin/productos');
             }
         } catch (\Exception $e) {
@@ -202,7 +223,7 @@ class ProductoController extends Controller
             $producto->stock = $producto->stock + $request->get('stock');
             $producto->update();
 
-            Session::flash('succes', 'Se aumento el stock del producto');
+            Session::flash('success', 'Se aumento el stock del producto');
             return Redirect::to('admin/productos');
 
         } catch (\Exception $e) {
@@ -240,7 +261,7 @@ class ProductoController extends Controller
                 $galeria->idproducto = $request->get('idproducto');
                 $galeria->save();
 
-                Session::flash('succes', 'Se subió la imagen con exito');
+                Session::flash('success', 'Se subió la imagen con exito');
                 return redirect()->back();
             }else{
                 Session::flash('danger', 'El formato de las imagenes no estan aceptadas');
@@ -265,7 +286,7 @@ class ProductoController extends Controller
         }
         $galeria->delete();
 
-        Session::flash('succes', 'Se eliminó la imagen correctamente');
+        Session::flash('success', 'Se eliminó la imagen correctamente');
         return redirect()->back();
 
     }
@@ -281,7 +302,7 @@ class ProductoController extends Controller
         }
         $producto->delete();
 
-        Session::flash('succes', 'Se eliminó el producto correctamente');
+        Session::flash('success', 'Se eliminó el producto correctamente');
         return redirect()->back();
 
     }

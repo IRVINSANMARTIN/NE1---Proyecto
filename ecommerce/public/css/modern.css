@@ -194,6 +194,7 @@ img, svg {
 
 svg {
   overflow: hidden
+  
 }
 
 table {
@@ -11506,7 +11507,7 @@ a.card {
 }
 
 .sidebar-toggle:hover .hamburger, .sidebar-toggle:hover .hamburger:after, .sidebar-toggle:hover .hamburger:before {
-  background: #fff
+  background: rgb(31, 30, 30)
 }
 
 .hamburger-right, .hamburger-right:after, .hamburger-right:before {
@@ -11783,15 +11784,15 @@ a.card {
 }
 
 .navbar-theme .navbar-brand, .navbar-theme .navbar-brand:focus, .navbar-theme .navbar-brand:hover {
-  color: #fff
+  color: black
 }
 
 .navbar-theme .navbar-nav .nav-link {
-  color: hsla(0, 0%, 100%, .75)
+  color: rgba(0, 0, 0, 0.75)
 }
 
 .navbar-theme .navbar-nav .nav-link:focus, .navbar-theme .navbar-nav .nav-link:hover {
-  color: #fff
+  color: black;
 }
 
 .navbar-theme .navbar-nav .nav-link.disabled {
@@ -11799,7 +11800,7 @@ a.card {
 }
 
 .navbar-theme .navbar-nav .active>.nav-link, .navbar-theme .navbar-nav .nav-link.active, .navbar-theme .navbar-nav .nav-link.show, .navbar-theme .navbar-nav .show>.nav-link {
-  color: #fff
+  color: black;
 }
 
 .navbar-theme .navbar-toggler {

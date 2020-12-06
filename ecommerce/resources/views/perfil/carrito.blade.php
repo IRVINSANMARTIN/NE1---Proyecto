@@ -184,73 +184,52 @@ use App\Venta; ?>
                         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
                         
                     </div><!-- End .checkout-methods -->
-                    <button id="buyButton" class="btn btn-primary btn-block" style="padding:10px;border: none;background: #dd0d0d"><i class="fas fa-credit-card"></i> Pagar con tarjeta</button>
-                    <br>
-                    <a href="#" class="rainbow-button" id="rainbow-button"data-toggle="modal"data-target="#exampleModal" alt="Paga con Loyalty Points"></a>
+                    <!--button id="buyButton" class="btn btn-primary btn-block" style="padding:10px;border: none;background: #dd0d0d"><i class="fas fa-credit-card"></i> Pagar con tarjeta</button-->
+                    
+                    @if (count($carrito)>0)
+                    <button type="button" class="btn btn-outline-info btn-block" data-toggle="modal"data-target="#exampleModal" ><i class="fas fa-crown"></i>Paga con loyalty points</button>
+                    @else
+                    @endif
 
 
-
-                    <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">METODO LOYALTY POINTS</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                        <h3>Total a pagar:</h3>
-                        <h2><i class="far fa-money-bill-alt"></i>$<?php echo $total ?></h2>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="exampleModalLabel"><i class="fas fa-crown"></i>PAGA CON LOYALTY POINTS</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fas fa-window-close"></i></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h2>Total a pagar:</h2>
+                                    <h3 class="et-tot"><i class="far fa-money-bill-alt"></i>$<?php echo $total ?></h3>
 
-                        <?php 
-                        $usuario = User::findOrFail(auth()->user()->id);
-                        $usuario = DB::table('users as u')       
-                            ->select('u.credit')
-                            ->where('id','=',auth()->user()->id)
-                            ->get();      
-                            ?>
-                            <h3>Puntos acumulados: </h3>
-                            @foreach ($usuario as $user)
-                            <h2><i class="far fa-money-bill-alt"></i>${{$user->credit}}</h2>
-                            @endforeach 
-                            <br>
-                            <?php
-                            $credito= $user->credit;
-                            
-                            if($credito>= $total){
-
-
-                            echo 'si puedes realizar la compra';
-                                
-                            }else {
-                                echo 'NO CUENTAS CON SUFICIENTES LOYALTY POINTS PARA REALIZAR ESTA COMPRA';
-                            }
-                            
-                            
-                            
-                            ?>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        
-                        
-                        
-                        </div>
+                                    <?php 
+                                    $usuario = User::findOrFail(auth()->user()->id);
+                                    $usuario = DB::table('users as u')       
+                                        ->select('u.credit')
+                                        ->where('id','=',auth()->user()->id)
+                                        ->get();      
+                                    ?>
+                                    <h2>Puntos acumulados: </h2>
+                                    @foreach ($usuario as $user)
+                                        <h2 class="et-puntos"><i class="fas fa-crown"></i></i>${{$user->credit}}</h2>
+                                    @endforeach 
+                                    <h4>AVISO: Al seleccionar "Pagar" se procesara en automatico la compra</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info btn-lg" onclick="loyal()">PAGAR</button>
+                                    <button type="button" class="btn btn-dark btn-lg" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </div>
-        
-               
-                </div><!-- End .cart-summary -->
-               
+                </div><!-- End .cart-summary -->           
             </div><!-- End .col-lg-4 -->
         </div><!-- End .row -->
-
     </div><!-- End .container -->
-
-    <div class="mb-6"></div><!-- margin -->
+<div class="mb-6"></div><!-- margin -->
 
     
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -367,6 +346,29 @@ function culqi() {
       alert(Culqi.error.user_message);
   }
 };
+
+function loyal(){
+        var totalp = '<?php echo $total ?>';
+        var credito= '<?php echo $user->credit?>';
+        <?php
+                $caracteres_permitidos = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $longitud = 15;
+                $numeal = substr(str_shuffle($caracteres_permitidos), 0, $longitud); ?>
+
+        if (credito >= totalp){
+           var productos = '<?php echo $data_productos?>';
+           var cantidades = '<?php echo $data_cantidades?>';
+           var transanccion  = '<?php echo $numeal?>';
+           var codigo = '<?php echo uniqid();?>';
+           var direccion = document.getElementById('direccion').value;
+
+        return window.location="../../../../venta/checkout/detalles/"+codigo+"/"+transanccion+"/"+productos+"/"+cantidades+"/"+direccion+'/'+'<?php echo $total?>'+'/'+moneda+'/loyal';
+        }
+        else {
+            alert('NO CUENTAS CON SUFICIENTE SALDO PARA REALIZAR ESTA COMPRA');
+        }
+    
+    }
 </script>
 @endpush
 @endsection

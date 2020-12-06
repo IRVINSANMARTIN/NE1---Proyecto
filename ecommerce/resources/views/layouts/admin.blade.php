@@ -21,7 +21,7 @@
 			opacity: 0;
 		}
 		.hamburger, .hamburger:after, .hamburger:before{
-			background: white !important;
+			background: black !important;
 		}
 	</style>
 	<script src="{{asset('js/settings.js')}}"></script>
@@ -87,12 +87,7 @@
 							<i class="align-middle mr-2 fas fa-fw fa-envelope"></i> <span class="align-middle">Mensajes</span>
 						</a>
 					</li>
-					<li>
-                        <form method="POST" action="{{route('logout')}}" style="margin-bottom: 0px !important">
-                    		@csrf
-                    		<button type="submit" class="btn btn-primary" style="width: 100%;margin-right: 0px;overflow:auto;">Logout</button>
-                        </form>
-                    </li>
+					
 				</ul>
 			</div>
 		</nav>
@@ -102,7 +97,7 @@
 
 		</div>
 	@else
-		<div class="w3-card-4 w3-margin" style="width:50%;">
+		<!--div class="w3-card-4 w3-margin" style="width:50%;">
 	
 			<header class="w3-container w3-blue">
 				<h1>¡Acceso denegado!</h1>
@@ -111,6 +106,20 @@
 			<div class="w3-container">
 				<p>Solo los usuarios administradores pueden accesar a esta parte de la página, por favor regresa a la página de inicio haciendo clic en el siguiente boton.</p>
 				<a href="{{route('inicio')}}"><input type="button" value="Regresar"></a>
+		</div-->
+
+		<div class="container" style="padding-top: 60px;">
+		<div class="custom-column" >        
+					<div class="custom-column-header"><i class="fa fa-shield-alt"></i>  ¡Acceso Denegado! <i class="fa fa-shield-alt"></i> </div>
+					<div class="custom-column-content">
+					<ul class="list-group">
+						<li class="list-group-item" style="text-align:center;background-color:#eee"> <strong>Area de administración de la página DealPC Computers</strong></li>
+						<li class="list-group-item" > Esta zona de DealPC solo está disponible para los usuarios encargados de la administración de la página y sus componentes, por favor, da clic en el siguiente boton para regresar a la página anterior. Muchas gracias. </li>
+						
+					</ul>
+					</div>
+					<div class="custom-column-footer"><button onclick="window.location.href='{{route('inicio')}}';"class="btn btn-danger btn-lg">Regresar a la página principal</button></div>
+				</div>
 		</div>
 	
 	@endif
@@ -135,6 +144,34 @@
 	<style>
 		.invalid-feedback{
 			display: block;
+		}
+		.custom-column {  
+		background-color: #CB3234;
+		border: 5px solid #eee;    
+		padding: 10px;
+		box-sizing: border-box; 
+		
+		}
+
+		.custom-column-header {
+		font-size: 24px;
+		background-color: #CB3234;  
+		color: white;
+		padding: 15px;  
+		text-align: center;
+		}
+
+		.custom-column-content {
+		background-color: #fff;
+		border: 2px solid white;  
+		padding: 20px;  
+		}
+
+		.custom-column-footer {
+		background-color: #eee;   
+		padding-top: 20px;
+		text-align: center;
+		padding-bottom: 20px;
 		}
 	</style>
 </body>

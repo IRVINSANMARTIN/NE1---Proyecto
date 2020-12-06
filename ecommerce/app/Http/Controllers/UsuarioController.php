@@ -47,7 +47,7 @@ class UsuarioController extends Controller
         $usuarios = User::findOrFail($id);
         $usuarios->delete();
 
-        Session::flash('success', 'Se eliminó el producto correctamente');
+        Session::flash('success', 'Se eliminó el usuario correctamente');
         return redirect()->back();
 
     }
@@ -59,10 +59,10 @@ class UsuarioController extends Controller
             'name'=>'required|min:3| max: 50',
             'fullname'=>'required|min:3| max: 80',
             'password'=>'min:6|max:30|confirmed',
-            'telefono'=>'required|min:3| max: 15',
+            'telefono'=>'required|min:10| max: 10',
             'tipo_doc'=>'required|min:3| max: 50',
-            'num_doc'=>'required|min:3| max: 20',
-            'credit' =>'required|min:3| max:20'
+            'num_doc'=>'required|min:7| max: 10',
+            
         ]);
 
         try {
@@ -74,9 +74,14 @@ class UsuarioController extends Controller
             $user->telefono = $request->get('telefono');
             $user->tipo_doc = $request->get('tipo_doc');
             $user->num_doc = $request->get('num_doc');
-            $user->credit = $request->get('credit');
+            
             if($request->get('contrasena')){
                 $user->password = bcrypt($request->get('contrasena'));
+            }
+
+            if(!ctype_alpha($user->name) || !ctype_alpha($user->fullname)){
+                Session::flash('danger', 'Error: Los nombres no pueden contener numeros');
+                return redirect()->back();
             }
             $user->update();
 
@@ -92,7 +97,12 @@ class UsuarioController extends Controller
 
     public function direccion(){
 
-        $paises = json_decode(file_get_contents('https://restcountries.eu/rest/v2/all',true));
+        //$paises = json_decode(file_get_contents('https://restcountries.eu/rest/v2/all',true));
+        $paises = array(
+            "México",
+            "Estados unidos",
+            "Canadá"
+        );
 
         $direcciones = DB::table('direccion')
         ->where('iduser','=',auth()->user()->id)
@@ -104,11 +114,11 @@ class UsuarioController extends Controller
 
     public function direccion_registro(Request $request){
         $validator = $request->validate([
-            'direccion'=>'required|min:3| max: 400',
-            'pais'=>'required|min:3| max: 100',
-            'region'=>'required|min:3| max: 100',
-            'ciudad'=>'required|min:3| max: 100',
-            'zip'=>'required|min:2| max: 15',
+            'direccion'=>'required|min:1| max: 400',
+            'pais'=>'required|min:1| max: 100',
+            'region'=>'required|min:1| max: 100',
+            'ciudad'=>'required|min:1| max: 100',
+            'zip'=>'required|min:1| max: 15',
         ]);
 
         try {
@@ -119,6 +129,21 @@ class UsuarioController extends Controller
             $direccion->ciudad = $request->get('ciudad');
             $direccion->zip = $request->get('zip');
             $direccion->iduser = auth()->user()->id;
+            if(!ctype_alpha($direccion->region) || !ctype_alpha($direccion->ciudad)){
+                if(ctype_alpha($direccion->zip)){
+                    Session::flash('danger', 'Error: La region y la ciudad no pueden contener numeros y el codigo ZIP no puede contener letras.');
+                    return redirect()->back();
+                }else{
+                    Session::flash('danger', 'Error: La region y la ciudad no pueden contener numeros');
+                    return redirect()->back();
+                }
+                
+            }else if(ctype_alpha($direccion->zip)){
+            
+                Session::flash('danger', 'Error: El codigo ZIP no puede contener letras');
+                return redirect()->back();
+                
+            }
             $direccion->save();
             
             Session::flash('success', 'Se registro una nueva dirección en su cuenta.');
@@ -279,6 +304,8 @@ class UsuarioController extends Controller
                     $venta->metodo = 'Tarjeta de Crédito';
                 }else if($metodo == 'paypal'){
                     $venta->metodo = 'Paypal';
+                }else if ($metodo == 'loyal'){
+                    $venta->metodo = "Loyalty Points";
                 }
                 $venta->save();
 
@@ -292,10 +319,16 @@ class UsuarioController extends Controller
                 $carrito_del->delete();
 
                 $cont = $cont+1;
-                
+                if ($metodo == 'loyal') {
+                    //Seccion donde resta el total de la compra al saldo loyalty
+                         $usuario = DB::table('users')
+                         ->where('id','=',auth()->user()->id)
+                         ->decrement('credit', $total);
+                } 
             }
 
             Session::flash('success', 'Se procesó la compra correctamente.');
+            //agrega el 10% de las compras al campo credito del usuario
             $porciento = $total *.10;
             $usuario = DB::table('users')
             ->where('id','=',auth()->user()->id)

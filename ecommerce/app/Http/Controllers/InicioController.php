@@ -220,9 +220,18 @@ class InicioController extends Controller
             $contacto->correo=$request->get('correo');
             $contacto->telefono=$request->get('telefono');
             $contacto->mensaje=$request->get('mensaje');
+            if(!ctype_alpha($contacto->nombres) || !ctype_alpha($contacto->mensaje)){
+                
+                Session::flash('danger', 'Error: Los campos de nombre y mensaje solo puede contener letras y el telefono solo puede contener numeros');
+                return redirect()->back();
+                
+            }else if(ctype_alpha($contacto->telefono)){
+                Session::flash('danger', 'Error: Los campos de nombre y mensaje solo puede contener letras y el telefono solo puede contener numeros');
+                return redirect()->back();
+            }
             $contacto->save();
 
-            Session::flash('success', 'Su mensaje se envió a soporte, resivirá un mensaje en su bandeja.');
+            Session::flash('success', 'Su mensaje se envió a soporte, recibirá un mensaje en su bandeja.');
             return redirect()->back();
 
         } catch (\Exception $e) {

@@ -69,6 +69,7 @@
                         <ul class="menu sf-arrows">
                             <li><a class="item-primary" href="{{route('inicio')}}">Home</a></li>
                             <li><a class="item-primary" href="{{route('productos')}}">Products</a></li>
+                            <!--li><a class="item-primary" href="{{route('Build')}}">Build PC</a></li-->
                             @if (auth::check())
                                 <li><a href="{{route('mis_compras')}}" class="item-primary">Mis compras</a></li>
                             @endif
@@ -133,9 +134,10 @@
                 <div class="container">
                     <div class="header-left">
                         <a href="{{route('inicio')}}" class="logo">
-                            <img src="{{asset('config/'.$config->logo)}}" alt="DEALPC Logo" width="120" height="80">
+                            <img src="{{asset('config/'.$config->logo)}}" alt="DEALPC Logo" width="60" height="40">
                         </a>
                     </div><!-- End .header-left -->
+                    
                     <!-- aqui va search -->
                     <div class="header-center">
                         <div class="header-search">
@@ -150,17 +152,18 @@
                     </div><!-- End .headeer-center -->
 
                     <div class="header-right"> <!--Menu mobil-->
+
                         <button class="mobile-menu-toggler" type="button">
-                            <i class="icon-menu"></i>
+                            <i class="icon-menu"></i> <!-- Menu hamburguesa-->
                         </button>
                         
-
+                    
 
                        @if (Auth::check())
                             <div class="dropdown cart-dropdown">
                                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                    <span class="cart-count"><?php echo $num_compras?></span>
-                                </a>
+                                    <span class="cart-count"><?php echo $num_compras?></span>  <!-- Numero elementos carrito-->
+                                </a> <!--Carrito de compras termina-->
                                 
                                 <div class="dropdown-menu" >
                                     <div class="dropdownmenu-wrapper">
@@ -171,7 +174,7 @@
                                                     <div class="product">
                                                         <div class="product-details">
                                                             <h4 class="product-title">
-                                                                <a href="product.html">{{$item->titulo}}</a>
+                                                                <a href="#">{{$item->titulo}}</a>
                                                             </h4>
 
                                                             <span class="cart-product-info">
@@ -181,7 +184,7 @@
                                                         </div><!-- End .product-details -->
 
                                                         <figure class="product-image-container">
-                                                            <a href="product.html" class="product-image">
+                                                            <a href="#" class="product-image">
                                                                 <img src="{{asset('poster/'.$item->poster)}}" alt="product">
                                                             </a>
                                                             <form action="{{route('quitar.carrito',$item->id)}}" method="POST" style="margin-bottom: 0px !important; cursor:pointer">
@@ -329,7 +332,7 @@
         </footer><!-- End .footer -->
     </div><!-- End .page-wrapper -->
 
-    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay Hace oscuro cuando se abre menu movil--> 
 
     <div class="mobile-menu-container">
         <div class="mobile-menu-wrapper">

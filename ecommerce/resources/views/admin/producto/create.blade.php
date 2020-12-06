@@ -78,7 +78,7 @@
                                                         </div>
                                                         <div class="col-lg-3 form-group">
                                                             <label><b>Stock</b></label>
-                                                            <input type="number" name="stock" class="form-control {{ $errors->has('stock') ? ' is-invalid' : '' }}" autocomplete="new-text" value="{{old('stock')}}" placeholder="0">
+                                                            <input type="number" name="stock" class="form-control {{ $errors->has('stock') ? ' is-invalid' : '' }}" autocomplete="new-text" value="{{old('stock')}}" placeholder="0" pattern="^[0-9]+">
                                                             @if ($errors->has('stock'))
                                                             <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('stock') }}</strong>

@@ -79,7 +79,8 @@ Route::get('contacto','InicioController@contacto')->name('contacto');
 Route::post('contacto','InicioController@contacto_send')->name('contacto.send');
 Route::get('lo-mas-vendido','InicioController@best_seller')->name('best_seller');
 
-
+//Route:: get('Build','BuildpcController')->name('Build');
+//Route::post('producto/carrito','BuildpcController@agregar_carrito')->name('agregar.carrito');
 Auth::routes();
 
 

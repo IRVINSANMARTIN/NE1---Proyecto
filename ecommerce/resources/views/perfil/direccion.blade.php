@@ -39,7 +39,7 @@
                             <label><b>País</b></label>
                             <select name="pais" class="form-control">
                                 @foreach ($paises as $item)
-                                    <option value="{{$item->name}}">{{$item->name}}</option>
+                                    <option value="{{$item}}">{{$item}}</option>
                                 @endforeach
                             </select>
                         </div>

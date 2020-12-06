@@ -6,22 +6,22 @@
             <div class="col-lg-9 order-lg-last dashboard-content">
                 <h2>Consulta tus Loyalty Points</h2>
                 <table class="table table-responsive table-striped">
-    <thead>
-        <tr>
-            <th>SALDO ACTUAL</th>
-        </tr>
-    </thead>
-    <tbody>
+                    <thead>
+                        <tr>
+                            <th>SALDO ACTUAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-        <tr>
-        @foreach ($usuario as $user)
-            <td href="{{route('loyalty')}}">${{$user->credit}}</td>
-        @endforeach
-        </tr>
+                        <tr>
+                        @foreach ($usuario as $user)
+                            <td href="{{route('loyalty')}}">${{$user->credit}}</td>
+                        @endforeach
+                        </tr>
        
-    </tbody>
-</table>
-<h3>¡Recuerda que puedes usar tus Loyalty Points Acumulados para realizar compras en nuestro sitio!</h3>
+                    </tbody>
+                </table>
+                <h3>¡Recuerda que puedes usar tus Loyalty Points Acumulados para realizar compras en nuestro sitio!</h3>
             </div>
             <aside class="sidebar col-lg-3">
                 <div class="widget widget-dashboard">

@@ -48,14 +48,14 @@
             </div>
 
             <div class="row">
-                @if(Session::has('succes'))
+                @if(Session::has('success'))
                     <div class="col-lg-12 form-group">
                         <div class="alert alert-success alert-outline alert-dismissible" role="alert">
                             <div class="alert-icon">
                                 <i class="far fa-fw fa-bell"></i>
                             </div>
                             <div class="alert-message">
-                               {{Session::get('succes')}}
+                               {{Session::get('success')}}
                             </div>
         
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

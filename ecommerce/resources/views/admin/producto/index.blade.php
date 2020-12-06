@@ -13,14 +13,14 @@
             </div>
 
             <div class="row">
-                @if(Session::has('succes'))
+                @if(Session::has('success'))
                     <div class="col-lg-12 form-group">
                         <div class="alert alert-success alert-outline alert-dismissible" role="alert">
                             <div class="alert-icon">
                                 <i class="far fa-fw fa-bell"></i>
                             </div>
                             <div class="alert-message">
-                               {{Session::get('succes')}}
+                               {{Session::get('success')}}
                             </div>
         
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -50,7 +50,7 @@
                                 <div class="col-lg-2">
                                     <div class="btn-group">
                                         <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Optiones
+                                        Opciones
                                         </button>
                                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
                                             <a class="dropdown-item" href="{{route('create.producto')}}"><i class="fas fa-archive"></i> Registrar producto</a>
@@ -85,7 +85,7 @@
                                             </button>
 											<div class="dropdown-menu">
 												<a class="dropdown-item" href="{{route('edit.producto',$item->slug)}}"><i class="fas fa-edit"></i> Editar detalles</a>
-												<a class="dropdown-item" data-toggle="modal" data-target="#stock-{{$item->id}}"><i class="fas fa-socks"></i> Aumentar stock</a>
+												<a class="dropdown-item" data-toggle="modal" data-target="#stock-{{$item->id}}"><i class="fas fa-socks"></i> Modificar stock</a>
 												<a class="dropdown-item" href="{{route('galeria.producto',$item->slug)}}"><i class="fas fa-images"></i> Galería</a>
 												<div class="dropdown-divider"></div>
 												<a class="dropdown-item" data-toggle="modal" data-target="#modal-{{$item->id}}">Eliminar producto</a>
@@ -100,7 +100,7 @@
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Aumentar stock</h5>
+                                                            <h5 class="modal-title">Modificar stock</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                             </button>
@@ -111,7 +111,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times-circle"></i> Cerrar</button>
-                                                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Aumentar</button>
+                                                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Modificar stock</button>
                                                         </div>
                                                     </div>
                                                 </div>
