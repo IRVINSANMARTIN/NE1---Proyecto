@@ -2663,8 +2663,8 @@ a:hover, a:focus {
 }
 
 .ratings-container .product-ratings::before {
-  content: "\e852 " "\e852 " "\e852 " "\e852 " "\e852";
-  color: rgba(0, 0, 0, 0.16)
+  
+  
 }
 
 .ratings-container .product-ratings:hover .tooltiptext {
@@ -2677,12 +2677,14 @@ a:hover, a:focus {
   top: 0;
   left: 0;
   white-space: nowrap;
-  overflow: hidden
+  overflow: hidden;
+  width: 0;
 }
 
 .ratings-container .ratings::before {
   content: "\e852 " "\e852 " "\e852 " "\e852 " "\e852";
-  color: #6a6a6d
+  nav-index: initial;
+  color: #f8ce0b
 }
 
 .divide-line {

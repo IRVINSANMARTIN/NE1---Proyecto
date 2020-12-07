@@ -1,5 +1,8 @@
 @extends('layouts.users')
 @section('user-content')
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 <main class="main">
     <div class="container">
          
@@ -44,9 +47,7 @@
 
                                
                             </div><!-- End .shipping-address-box -->
-
-                            
-
+                        
                             <div class="shipping-address-box">
                                 <address>
                                    <b>Nombres completos: </b>{{auth()->user()->name}} {{auth()->user()->fullname}}<br>
@@ -83,7 +84,7 @@
                             </div><!-- End .shipping-address-box -->
 
 
-                            @if ($venta->estado == 'Procesando')
+                            @if ($venta->estado == 'Procesando' || $venta->estado == 'Enviado' )
                                 <a href="#" class="btn btn-sm btn-outline-secondary btn-new-address mt-4 mr-4" data-toggle="modal" data-target="#confirmacion"><i class="icon icon-ok"></i> Confirmar entrega</a>
                             @endif
 
@@ -101,6 +102,70 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h4 class="modal-title" id="exampleModalLabel"><b>Resena del producto</b></h4>
+                                            <!-- SE AGREGA RATING -->
+                                            <div class="col-lg-4 col-md-6 mt-1">
+                                                <div class="ratings-container">
+                                                    <div class="product-ratings" >
+                                                        <i class="fa fa-star fa-1x" data-index="0"></i>
+                                                        <span class="ratings"   ></span><!-- End .ratings -->
+                                                    </div><!-- End .product-ratings -->
+                                                    <div class="product-ratings"  >
+                                                        <i class="fa fa-star fa-1x" data-index="1"></i>
+                                                        <span class="ratings" ></span><!-- End .ratings -->
+                                                    </div><!-- End .product-ratings -->
+                                                    <div class="product-ratings" >
+                                                        <i class="fa fa-star fa-1x" data-index="2"></i>
+                                                        <span class="ratings"   ></span><!-- End .ratings -->
+                                                    </div><!-- End .product-ratings -->
+                                                    <div class="product-ratings" >
+                                                        <i class="fa fa-star fa-1x" data-index="3"></i>
+                                                        <span class="ratings"   ></span><!-- End .ratings -->
+                                                    </div><!-- End .product-ratings -->
+                                                    <div class="product-ratings">
+                                                        <i class="fa fa-star fa-1x" data-index="4"></i>
+                                                        <span class="ratings"   ></span><!-- End .ratings -->
+                                                    </div><!-- End .product-ratings -->
+                                                </div><!-- End .product-container -->
+                                            </div>
+
+                                            
+                                            <script>
+
+                                                var ratedIndex = -1;
+
+                                                $(document).ready(function () {
+                                                    resetStarColors();
+
+                                                    $('.fa-star').on('click',function(){
+                                                        ratedIndex= parseInt($(this).data('index'));
+                                                    });
+
+                                                    $('.fa-star').mouseover(function(){
+                                                        console.log('here');
+                                                        resetStarColors();
+
+                                                        var currentIndex = parseInt($(this).data('index'));
+                                                        console.log(currentIndex);
+                                                        for(var i = 0; i<=currentIndex; i++ )
+                                                        $('.fa-star:eq('+i+')').css('color','yellow');
+
+                                                    });
+                                                    $('.fa-star').mouseleave(function(){
+                                                        console.log('here2');
+                                                        resetStarColors();
+                                                        
+                                                        if(ratedIndex != -1)    
+                                                            for(var i = 0; i<=ratedIndex; i++ )
+                                                                $('.fa-star:eq('+i+')').css('color','yellow');
+                                                    });
+                                                });
+                                                function resetStarColors(){
+                                                    $('.fa-star').css('color','white');
+                                                    
+                                                }
+                                            </script>                                        
+
+                                            <!-- -->
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -152,7 +217,7 @@
                                         </button>
                                         </div>
                                     
-                                
+
                                     
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
@@ -213,7 +278,7 @@
                                 <tr>
                                     <td class="product-col">
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="#" class="product-image">
                                                 <img src="{{asset('poster/'.$venta->poster)}}" alt="product">
                                             </a>
                                         </figure>

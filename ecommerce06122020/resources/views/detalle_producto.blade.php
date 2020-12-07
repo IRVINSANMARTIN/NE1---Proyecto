@@ -34,16 +34,34 @@
                             </div>
                         </div><!-- End .col-lg-7 -->
 
+                            <!-- CREACION DE NUEVA FUNCION PARA SUMAR-->
+                            @php
+                                $suma = 0;
+                            @endphp
+                                <td>Q
+                                    @foreach($resenas as $resena)
+                                        @php
+                                            $suma ++;
+                                    @endphp
+                                    @endforeach
+
+                                </td>    
+                            <!-- CREACION DE NUEVA FUNCION PARA SUMAR-->
+                        
                         <div class="col-lg-5 col-md-6">
                             <div class="product-single-details">
                                 <h1 class="product-title">{{$producto->titulo}}</h1>
-
+                                
                                 <div class="ratings-container">
                                     <div class="product-ratings">
-                                        <span class="ratings" style="width:60%"></span><!-- End .ratings -->
+                                    <i class="fa fa-star fa-1x" data-index="0" style="color: yellow" ></i>
+                                    <i class="fa fa-star fa-1x" data-index="1" style="color: yellow" ></i>
+                                    <i class="fa fa-star fa-1x" data-index="2" style="color: yellow" ></i>
+                                    <i class="fa fa-star fa-1x" data-index="3" style="color: yellow" ></i>
+                                    <i class="fa fa-star fa-1x" data-index="4" style="color: yellow" ></i>
+                                    <span class="ratings"></span><!-- End .ratings -->
                                     </div><!-- End .product-ratings -->
-
-                                    <a href="#" class="rating-link">( 6 Reviews )</a>
+                                    <a href="#" class="rating-link">( {{$suma}} Reviews )</a>
                                 </div><!-- End .product-container -->
 
                                 <div class="price-box">

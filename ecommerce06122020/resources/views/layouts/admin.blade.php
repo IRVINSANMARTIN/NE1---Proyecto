@@ -27,6 +27,7 @@
 	<script src="{{asset('js/settings.js')}}"></script>
 	<link rel="stylesheet" href="{{asset('css/modern.css')}}">
 	<link rel="stylesheet" href="{{asset('css/admin.css')}}">
+	
 </head>
 
 <body>
